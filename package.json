@@ -1,0 +1,10 @@
+{
+  "name": "GamerGator",
+  "version": "1.0.0",
+  "description": "Event scheduling for gamers",
+  "main": "server.js",
+  "author": "CEN3031 1355 Group #2",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
