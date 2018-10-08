@@ -6,3 +6,34 @@
   max-height: 400px;
   overflow: auto;
 }
+
+h6{
+	color: gray;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 40px;
+  background-color: white;
+  padding: 50px;
+}
+.grid-container > div {
+	position: relative;
+  text-align: center;
+  padding: 0px 0;
+  border-style: solid;
+  border-color: lightgrey;
+  width: 260px;
+  height: 300px;
+  box-shadow: 1px 2px lightgrey;
+}
+
+.grid-containter > div > img{
+	width: 260px;
+	height: 150px;
+}
+#div-content{
+
+}
