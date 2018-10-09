@@ -1,0 +1,33 @@
+#searchBar {
+    margin: 15px 10px;
+}
+
+.tableWrapper {
+    max-height: 400px;
+    overflow: auto;
+}
+
+h1 {
+    color: #ff702a;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h3 {
+    color: #fafbff;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.btn-warning{
+    background-color: #2564ff;
+}
+
+
+body {
+    background-image: url("/Users/jinhongliu/Desktop/groupProject/508275.jpg");
+    background-repeat:no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}

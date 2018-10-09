@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/register.css">
+</head>
+<br/>
+<br/>
+<br/>
+<body ng-app="Register Page" id="newinfo">
+
+<div class="container">
+    <div class="col-md-6">
+        <div class="row">
+            <h1>GameGators!</h1>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            <h3>Register Page</h3>
+        </div>
+        <form ng-submit="addListing()">
+            <div class="form-group">
+                <br/>
+                <label>Name</label>
+                <input type="text" ng-model="newListing.name" id="addListingName" class="form-control"
+                       placeholder="Name">
+            </div>
+            <div class="form-group">
+                <br/>
+                <br/>
+                <label>Password</label>
+                <input type="text" ng-model="newListing.code" id="addListingCode" class="form-control"
+                       placeholder="Code">
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <button type="submit" class="btn btn-warning">Submit</button>
+    </div>
+    </form>
+</div>
+</body>
+</html>
