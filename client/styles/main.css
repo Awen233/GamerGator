@@ -14,7 +14,7 @@ h6{
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-gap: 40px;
   background-color: white;
   padding: 50px;
