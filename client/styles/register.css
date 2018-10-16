@@ -9,25 +9,53 @@
 
 h1 {
     color: #ff702a;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+
 }
 
 h3 {
     color: #fafbff;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+
 }
 
-.btn-warning{
+.btn-warning {
     background-color: #2564ff;
 }
 
+label{
+    color: #ff702a;
+}
 
 body {
-    background-image: url("/Users/jinhongliu/Desktop/groupProject/508275.jpg");
-    background-repeat:no-repeat;
+    background-image: url("508275.jpg");
+    background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 
 }
+
+#addListingAge {
+    color: white;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    color: white !important;
+}
+
+input[type="text"]:-moz-placeholder {
+    color: white !important;
+}
+
+input[type="text"]::-moz-placeholder {
+    color: white !important;
+}
+
+input[type="text"]:-ms-input-placeholder {
+    color: white !important;
+}
+
+.register-input {
+    color: white;
+}
+

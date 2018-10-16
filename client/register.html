@@ -6,7 +6,6 @@
 </head>
 <br/>
 <br/>
-<br/>
 <body ng-app="Register Page" id="newinfo">
 
 <div class="container">
@@ -14,29 +13,46 @@
         <div class="row">
             <h1>GameGators!</h1>
         </div>
-        <br/>
-        <br/>
         <div class="row">
             <h3>Register Page</h3>
         </div>
+        <br/>
         <form ng-submit="addListing()">
+
             <div class="form-group">
-                <br/>
-                <label>Name</label>
-                <input type="text" ng-model="newListing.name" id="addListingName" class="form-control"
-                       placeholder="Name">
+                <label>Full Name</label>
+                <input type="text" ng-model="newListing.name" id="addListingName" class="form-control register-input"
+                       placeholder="Full Name">
             </div>
+
             <div class="form-group">
                 <br/>
+                <label>Username</label>
+                <input type="text" ng-model="newListing.name" id="addListingUsername" class="form-control register-input"
+                       placeholder="Username">
+            </div>
+
+            <div class="form-group">
                 <br/>
                 <label>Password</label>
-                <input type="text" ng-model="newListing.code" id="addListingCode" class="form-control"
-                       placeholder="Code">
+                <input type="text" ng-model="newListing.code" id="addListingCode" class="form-control register-input"
+                       placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <br/>
+                <label>Reenter Password</label>
+                <input type="text" ng-model="newListing.name" id="addListing2Code" class="form-control register-input"
+                       placeholder="Reenter Password">
             </div>
             <br/>
             <br/>
             <br/>
             <button type="submit" class="btn btn-warning">Submit</button>
+
+
+
+
     </div>
     </form>
 </div>
