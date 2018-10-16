@@ -8,7 +8,8 @@ angular.module('events', []).factory('Events', function($http) {
               {
                 title: 'Title',
                 date: 'Date',
-                description: 'Description'
+                description: 'Description',
+                minAge: 18
               },
               {
                 title: 'Title',

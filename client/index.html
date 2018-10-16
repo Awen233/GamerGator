@@ -19,6 +19,8 @@
       <div id='navline'>
       </div>
     </div>
+    <!-- Add a spacer element to offset the navbar -->
+    <div id='navspacer'></div>
     <div>
       <form class="pure-form pure-form-stacked">
         <fieldset>
@@ -65,8 +67,12 @@
     </div>
     <div>
       <ol id='event-list'>
-        <li class='event-card' ng-repeat='event in events'>
-          <img class="pure-img" src="game.jpg">
+        <li class='event-card' ng-repeat='(index, event) in events'>
+          <!-- Add a little age indicator -->
+          <div class='age-indicator' ng-if='event.minAge' ng-click='eventWasClicked(index)'>
+            <label>{{event.minAge + '+'}}</label>
+          </div>
+          <img class="pure-img" src="game.jpg" ng-click='eventWasClicked(index)'>
           <div class='card-body'>
             <div class='card-body-header'>
               <label class='card-title'>{{event.title}}</label>

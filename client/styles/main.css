@@ -3,8 +3,13 @@ html {
 }
 
 #navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
+  z-index: 999;
 }
 #navcontent {
   display: flex;
@@ -21,6 +26,10 @@ html {
   background-color: #dddddd;
 }
 
+#navspacer {
+  height: 46px;
+}
+
 #event-list {
   padding-left: 0;
   list-style-type: none;
@@ -31,17 +40,20 @@ html {
 }
 .event-card {
   width: 100%;
-  height: 350px;
-  background-color: #fafafa;
+  height: 340px;
+  background-color: #f7eded;
   border-radius: 5px;
+  position: relative;
 }
 .event-card > img {
   width: 100%;
   border-radius: 5px 5px 0 0;
+  cursor: pointer;
 }
 .card-body {
   display: flex;
   flex-direction: column;
+  color: #3a3a3a;
 }
 .card-body-header {
   display: flex;
@@ -49,6 +61,31 @@ html {
   justify-content: space-between;
   margin: 5px;
 }
+.card-title {
+  font-weight: 800;
+  font-size: 16px;
+  cursor: text;
+}
+.card-date {
+  font-size: 13px;
+  cursor: text;
+}
 .card-body-description {
-  margin: 5px;
+  margin: 0px 5px 5px 5px;
+  font-size: 13px;
+  font-style: italic;
+  cursor: text;
+  width: min-content;
+}
+.age-indicator {
+  background-color: rgba(255,255,255,0.85);
+  color: #3a3a3a;
+  border-radius: 3px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 2px 5px 2px 5px;
+}
+.age-indicator, .age-indicator > * {
+  cursor: pointer;
 }

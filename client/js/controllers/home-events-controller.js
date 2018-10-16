@@ -1,9 +1,7 @@
 angular.module('events').controller('HomeEventsController', ['$scope', 'Events', 
   function($scope, Events) {
     
-    console.log('hey');
-
-    $scope.load = function () {
+    $scope.load = function() {
       Events.get($scope.searchParams).then(function(response) {
         $scope.events = response.events;
       }, function(error) {
@@ -11,5 +9,9 @@ angular.module('events').controller('HomeEventsController', ['$scope', 'Events',
       });
     }
     $scope.load();
+
+    $scope.eventWasClicked = function(index) {
+      console.log('Event clicked at index: ' + index);
+    };
   }
 ]);
