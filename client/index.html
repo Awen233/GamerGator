@@ -13,7 +13,7 @@
         <a class='pure-menu-heading pure-menu-link' href='#'>
           <img class='pure-img' src= "DND.jpg">
         </a>
-        <ul class='pure-menu-list'>
+        <ul id='navbar-menu-list' class='pure-menu-list'>
           <li class="pure-menu-item"><a href="#" class="pure-menu-link">My Events</a></li>
           <li class="pure-menu-item"><a href="#" class="pure-menu-link">Log in</a></li>
           <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign up</a></li>
@@ -35,30 +35,30 @@
 
 
 
-    <form class="pure-form">
-    <fieldset>
-        <legend> Filter the Events</legend>
+    <form class="pure-form" id='filter-box'>
+      <fieldset>
+          <legend> Filter the Events</legend>
 
-        <input id="title" type="text" ng-model='searchParams.title' placeholder="Event Title">
-        <input id="type" type="text" ng-model='searchParams.type' placeholder="Event Type">
-        <input id="host" type="text" ng-model='searchParams.host' placeholder="Event Host">
-         
-        <input id="eventdate" type="date" ng-model='searchParams.date'>
+          <input id="title" type="text" ng-model='searchParams.title' placeholder="Event Title">
+          <input id="type" type="text" ng-model='searchParams.type' placeholder="Event Type">
+          <input id="host" type="text" ng-model='searchParams.host' placeholder="Event Host">
+           
+          <input id="eventdate" type="date" ng-model='searchParams.date'>
 
-        <label for="agelimit">
-            <input id="agelimit" type="checkbox" ng-model='searchParams.minAge'> 18+  
-        </label>
+          <label for="agelimit">
+              <input id="agelimit" type="checkbox" ng-model='searchParams.minAge'> 18+  
+          </label>
 
-        <label for="cost">
-            <input id="cost" type="checkbox" ng-model='searchParams.cost'> Free 
-        </label>
+          <label for="cost">
+              <input id="cost" type="checkbox" ng-model='searchParams.cost'> Free 
+          </label>
 
-        <label for="rsvp">
-            <input id="rsvp" type="checkbox" ng-model='searchParams.rsvp'> Open Seats 
-        </label>
+          <label for="rsvp">
+              <input id="rsvp" type="checkbox" ng-model='searchParams.rsvp'> Open Seats 
+          </label>
 
-        <button type="submit" class="pure-button pure-button-primary">Filter</button>
-    </fieldset>
+          <button type="submit" class="pure-button pure-button-primary">Filter</button>
+      </fieldset>
     </form>
 
 

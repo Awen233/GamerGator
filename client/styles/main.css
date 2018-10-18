@@ -2,6 +2,10 @@ html {
 	min-width: 400px;
 }
 
+body {
+  background-color: #fafafa;
+}
+
 #navbar {
   position: fixed;
   top: 0;
@@ -10,11 +14,13 @@ html {
   display: flex;
   flex-direction: column;
   z-index: 999;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 #navcontent {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   background-color: #fafafa;
 }
 #navcontent > .pure-menu-heading > img {
@@ -25,9 +31,20 @@ html {
   height: 1px;
   background-color: #dddddd;
 }
+#navbar-menu-list {
+  margin-right: 15px;
+}
 
 #navspacer {
   height: 46px;
+}
+
+#filter-box {
+  margin: 20px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: white;
 }
 
 #event-list {
@@ -41,9 +58,13 @@ html {
 .event-card {
   width: 100%;
   height: 340px;
-  background-color: #f7eded;
+  background-color: white;
   border-radius: 5px;
   position: relative;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.event-card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .event-card > img {
   width: 100%;
