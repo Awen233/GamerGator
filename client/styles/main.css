@@ -34,6 +34,12 @@ body {
 #navbar-menu-list {
   margin-right: 15px;
 }
+#navbar-menu-list > li > a {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 20px;
+}
 
 #navspacer {
   height: 46px;
@@ -132,6 +138,6 @@ body {
         text-shadow: 0 3px 3px black;
     }
 
-.pure-form{
+.pure-form {
   margin-left: 1em;
 }    
