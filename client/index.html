@@ -19,8 +19,6 @@
           <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign up</a></li>
         </ul>
       </div>
-      <div id='navline'>
-      </div>
     </div>
 
 
@@ -64,12 +62,12 @@
 
     <div>
       <ol id='event-list'>
-        <li class='event-card' ng-repeat='(index, event) in events'>
+        <li class='event-card' ng-repeat='(index, event) in events' ng-click='eventWasClicked(index)'>
           <!-- Add a little age indicator -->
-          <div class='age-indicator' ng-if='event.minAge' ng-click='eventWasClicked(index)'>
+          <div class='age-indicator' ng-if='event.minAge'>
             <label>{{event.minAge + '+'}}</label>
           </div>
-          <img class="pure-img" src="game.jpg" ng-click='eventWasClicked(index)'>
+          <img class="pure-img" src="game.jpg">
           <div class='card-body'>
             <div class='card-body-header'>
               <label class='card-title'>{{event.title}}</label>

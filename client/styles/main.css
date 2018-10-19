@@ -26,23 +26,22 @@ body {
 #navcontent > .pure-menu-heading > img {
   width: 100px;
 }
-#navline {
-  width: 100%;
-  height: 1px;
-  background-color: #dddddd;
-}
 #navbar-menu-list {
   margin-right: 15px;
+}
+#navbar-menu-list > li > a:active {
+  color: #bbbbbb;
+  text-shadow: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3) inset;
 }
 #navbar-menu-list > li > a {
   text-transform: uppercase;
   font-size: 13px;
   font-weight: bold;
   padding: 20px;
-}
-
-#navspacer {
-  height: 46px;
+  transition: all 0.1s;
+  color: #0058bc;
+  text-shadow: 0 1px rgba(0,0,0,0.2);
 }
 
 #filter-box {
@@ -54,28 +53,36 @@ body {
 }
 
 #event-list {
+  margin: 20px;
   padding-left: 0;
   list-style-type: none;
   display: grid;
   grid-gap: 40px;
   grid-template-columns: repeat(auto-fit, 260px);
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .event-card {
   width: 100%;
   height: 340px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 3px;
   position: relative;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: all 0.1s;
+}
+.event-card * {
+  cursor: pointer;
 }
 .event-card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transform: scale(1.02);
+  box-shadow: 0 4px 7px rgba(0,0,0,0.16), 0 4px 7px rgba(0,0,0,0.23);
+}
+.event-card:active {
+  transform: scale(0.98);
 }
 .event-card > img {
   width: 100%;
-  border-radius: 5px 5px 0 0;
-  cursor: pointer;
+  border-radius: 3px 3px 0 0;
 }
 .card-body {
   display: flex;
@@ -91,17 +98,14 @@ body {
 .card-title {
   font-weight: 800;
   font-size: 16px;
-  cursor: text;
 }
 .card-date {
   font-size: 13px;
-  cursor: text;
 }
 .card-body-description {
   margin: 0px 5px 5px 5px;
   font-size: 13px;
   font-style: italic;
-  cursor: text;
   width: min-content;
 }
 .age-indicator {
@@ -112,9 +116,6 @@ body {
   top: 5px;
   left: 5px;
   padding: 2px 5px 2px 5px;
-}
-.age-indicator, .age-indicator > * {
-  cursor: pointer;
 }
 
 .banner {
