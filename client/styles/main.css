@@ -52,6 +52,10 @@ body {
   background-color: white;
 }
 
+#default-filters > input {
+  margin-right: 5px;
+}
+
 #event-list {
   margin: 20px;
   padding-left: 0;
