@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app='EventsApp'>
+  <head>
+    <link rel="stylesheet" href="styles/myevents.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+  </head>
+  <body ng-controller="HomeEventsController">
+
+
+    <div id='navbar' class='pure-menu pure-menu-horizontal'>
+      <div id='navcontent'>
+        <a class='pure-menu-heading pure-menu-link' href='#'>
+          <img class='pure-img' src= "DND.jpg">
+        </a>
+        <ul id='navbar-menu-list' class='pure-menu-list'>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">My Events</a></li>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Log in</a></li>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign up</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="banner">
+      <h1 class="banner-head">
+          <br>
+          Welcome, *NAME*<br>
+         
+          Here are your upcoming events
+          </h1>
+    </div>
+
+
+    <div class="pure-g" id="filter-box" ng-repeat='(index, event) in events' ng-click='eventWasClicked(index)'>
+        <div class="pure-u-7-24"> 
+             <div class="calendar-wrapper">
+                 <div class="calendar">
+                  <div class="month">Month</div>
+                  <div class="day">10</div>
+                  <div class="calendar-effect"></div>
+                </div>
+              </div>    
+        </div>
+        <div class = "pure-u-15-24">
+            <div id="thetitle">{{event.title}}</div>
+            <div id="thelocation">location</div>
+            <div id="descript">{{event.description}}</div>
+        </div>
+        <div class = "pure-u-2-24">
+          <button class="button-error">X</button>
+        </div>
+    </div>
+
+
+
+  
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/event-factory.js"></script>
+    <script src="js/controllers/home-events-controller.js"></script>
+  </body>
+</html>
