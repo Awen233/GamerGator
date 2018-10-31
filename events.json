@@ -1,0 +1,28 @@
+{
+    "entries":[
+        {
+            "event_name": "League Tournament",
+            "host": "Michael Somoza",
+            "address" : 123,
+            "categories": [
+                "PC", "MOBA"
+            ]
+        },
+        {
+            "event_name": "OverWatch Tournament",
+            "host": "Bob ",
+            "address" : 123,
+            "categories": [
+                "PC", "Shooter"
+            ]
+        },
+        {
+            "event_name": "Fortnite Tournament",
+            "host": "Michael Somoza",
+            "address" : 123,
+            "categories": [
+                "PC", "Battle Royale"
+            ]
+        }
+    ]
+}
