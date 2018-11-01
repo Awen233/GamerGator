@@ -25,6 +25,13 @@ module.exports.init = function() {
   Serve static files */
   app.use(express.static('client'));
 
+  // Access control compliancy
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
   /**TODO 
   Use the events router for requests to the api */
   app.use("/api/events", eventsRouter); // eventsRouter is currently pointing to '/api/events'
