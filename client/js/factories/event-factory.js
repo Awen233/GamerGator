@@ -1,6 +1,6 @@
 angular.module('events', []).factory('Events', function($http) {
   const apiBase = 'http://localhost:8080/api';
-  var methods = {
+  const api = {
     getAll: function() {
         return $http.get(apiBase + '/events');
     },
@@ -17,6 +17,37 @@ angular.module('events', []).factory('Events', function($http) {
        return $http.delete('http://localhost:8080/api/listings/' + id);
     }
   };
-
-  return methods;
+  const searchFields = {
+    filters: [
+      {
+        type: 'text',
+        model: 'title',
+        placeholder: 'Event Title'
+      },
+      {
+        type: 'text',
+        model: 'type',
+        placeholder: 'Event Type'
+      },
+      {
+        type: 'text',
+        model: 'host',
+        placeholder: 'Event Host'
+      },
+      {
+        type: 'date',
+        model: 'date',
+        placeholder: 'Event Date'
+      }
+    ],
+    categories: [
+      'Console', 'PC', 'Mobile', 'Board game', 'Card game', 'Arcade',
+      'Roleplaying', 'Fighter', 'Racing', 'Real-time strategy', 
+      'Turn-based strategy', 'Shooter', 'Survival', 'Sports'
+    ],
+  };
+  return {
+    api: api,
+    searchFields: searchFields
+  };
 });
