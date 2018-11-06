@@ -16,8 +16,8 @@ router.route('/:eventId')
   .delete(events.delete)
   .put(events.update);
 
-// router.route('/events/:eventId/users') NEEDS TO BE IMPLEMENTED
-//   .post(events.addUser);
+router.route('/:eventId/:userId') 
+  .put(events.addUser);
 
 
 /*
@@ -34,5 +34,6 @@ router.route('/:eventId')
   get, update, or delete that specific event (depending on the HTTP verb specified)
  */
 router.param('eventId', events.eventByID);
+router.param('userId', events.userByID);
 
 module.exports = router;

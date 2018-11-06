@@ -28,15 +28,7 @@ var userSchema = new Schema({
 
   interests: {
     type: [],
-  }, 
-
-  events: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Event"
-    }
-  ]
-
+  }
 });
 
 

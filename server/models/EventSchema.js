@@ -16,7 +16,6 @@ var eventSchema = new Schema({
   categories: {
     type: [String],
   },
-
   users: [
       {
         type: mongoose.Schema.Types.ObjectId,

@@ -17,6 +17,9 @@ router.route('/:userId')
   .delete(users.delete)
   .put(users.update);
 
+router.route('/:userId/MyEvents')
+  .get(users.myEvents);
+
 
 
 /*
@@ -34,5 +37,6 @@ router.route('/:userId')
  */
 
  router.param('userId', users.userByID);
+ 
 
 module.exports = router;

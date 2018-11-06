@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
     User = require('../models/UserSchema.js'),
+    Event = require('../models/EventSchema.js'),
     config = require('../config/config.js');
 
 
@@ -60,6 +61,17 @@ exports.userList = function(req, res) {
     }
   });
 };
+
+exports.myEvents = function (req, res){
+  var user = req.user;
+  Event.find({users: user._id}, function (err, events){
+    if(err){ 
+      console.log(err);
+    } else {
+      res.json(events);
+    }
+  });
+}
 
 
 

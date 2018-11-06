@@ -3,9 +3,6 @@ var mongoose = require('mongoose'),
     User = require('../models/UserSchema.js'),
     config = require('../config/config.js');
 
-
-
-
     mongoose.connect(config.db.uri, {useMongoClient:true});
 
 exports.create = function(req, res) {
@@ -63,6 +60,21 @@ exports.eventList = function(req, res) {
   });
 };
 
+exports.addUser = function (req, res){
+  var event = req.event;
+  var user = req.user;
+  Object.assign(event, req.body);
+
+  event.users.push(user);
+
+  Event.findByIdAndUpdate(event._id, event, function(err, event){
+    if (err){
+      console.log(err);
+    } else {
+      res.json(event);
+    }
+  });
+};
 
 
 /*
@@ -82,3 +94,16 @@ exports.eventByID = function(req, res, next, id) {
     }
   });
 };
+
+exports.userByID = function(req, res, next, id) {
+  User.findById(id).exec(function(err, user) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      req.user = user;
+      next();
+    }
+  });
+};
+
+
