@@ -50,7 +50,7 @@
 
 
     <div>
-      <ol id='event-list'>
+      <ol id='event-list' ng-if='model.shownEvents.length > 0'>
         <li class='event-card' ng-repeat='event in model.shownEvents' ng-click='eventWasClicked(event._id)'>
           <!-- Add a little age indicator -->
           <div class='age-indicator' ng-if='event.minAge'>
@@ -66,6 +66,9 @@
           </div>
         </li>
       </ol>
+      <h2 ng-if='model.shownEvents.length == 0' id='no-events'>
+        No events match the search terms.
+      </h2>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
