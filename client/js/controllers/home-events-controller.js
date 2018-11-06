@@ -37,6 +37,8 @@ angular.module('events').controller('HomeEventsController', ['$scope', 'Events',
         )
         // Check that the event name contains the search title
         .filter(event => event.event_name.toLowerCase().includes($scope.model.searchParams.title.toLowerCase()));
+        // Check that the event's recommended age is less than or equal to the maximum age
+        .filter(event => !event.age || event.age <= $scope.model.searchParams.age)
         // TODO: add the rest of the conditions
         // TODO: sort by date
       }, true);

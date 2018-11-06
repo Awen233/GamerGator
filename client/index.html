@@ -35,7 +35,7 @@
       <fieldset>
           <legend> Filter the Events</legend>
           <div class='pure-g' id='default-filters'>
-            <input class='pure-u-1 pure-u-md-5-24' ng-repeat='field in searchFields.filters' type='{{field.type}}' ng-model='model.searchParams[field.model]' placeholder='{{field.placeholder}}'>
+            <input class='pure-u-1 pure-u-md-5-24' ng-repeat='field in searchFields.filters' type='{{field.type}}' ng-model='model.searchParams[field.model]' placeholder='{{field.placeholder}}' min='{{field.min}}'>
           </div>
           <div class='pure-g'>
             <div class='pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-5 pure-u-xl-1-6' ng-repeat='category in searchFields.categories'>

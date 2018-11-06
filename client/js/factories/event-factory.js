@@ -22,22 +22,23 @@ angular.module('events', []).factory('Events', function($http) {
       {
         type: 'text',
         model: 'title',
-        placeholder: 'Event Title'
-      },
-      {
-        type: 'text',
-        model: 'type',
-        placeholder: 'Event Type'
+        placeholder: 'Event title'
       },
       {
         type: 'text',
         model: 'host',
-        placeholder: 'Event Host'
+        placeholder: 'Event host'
+      },
+      {
+        type: 'number',
+        model: 'age',
+        placeholder: 'Max age',
+        min: 14,
       },
       {
         type: 'date',
         model: 'date',
-        placeholder: 'Event Date'
+        placeholder: 'Event date'
       }
     ],
     categories: [
