@@ -32,14 +32,9 @@ angular.module('events', []).factory('Events', function($http) {
       {
         type: 'number',
         model: 'age',
-        placeholder: 'Max age',
+        placeholder: 'Maximum age',
         min: 14,
       },
-      {
-        type: 'date',
-        model: 'date',
-        placeholder: 'Event date'
-      }
     ],
     categories: [
       'Console', 'PC', 'Mobile', 'Board game', 'Card game', 'Arcade',

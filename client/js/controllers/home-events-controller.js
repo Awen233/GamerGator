@@ -31,16 +31,20 @@ angular.module('events').controller('HomeEventsController', ['$scope', 'Events',
         }
         // Start with all of the events and take away as needed
         $scope.model.shownEvents = $scope.model.allEvents
+        // Check that the event name contains the search title
+        .filter(event => event.event_name.toLowerCase().includes($scope.model.searchParams.title.toLowerCase()))
+        // Check that the event host name contains the searched host name
+        .filter(event => event.host.toLowerCase().includes($scope.model.searchParams.host.toLowerCase()))
+        // Check that the event's recommended age is less than or equal to the maximum age
+        .filter(event => !event.age || event.age <= $scope.model.searchParams.age)
         // Check that the event contains all the search categories
         .filter(event =>
           categories.filter(category => !event.categories.includes(category)).length == 0
         )
-        // Check that the event name contains the search title
-        .filter(event => event.event_name.toLowerCase().includes($scope.model.searchParams.title.toLowerCase()));
-        // Check that the event's recommended age is less than or equal to the maximum age
-        .filter(event => !event.age || event.age <= $scope.model.searchParams.age)
-        // TODO: add the rest of the conditions
-        // TODO: sort by date
+        // Check that the event is upcoming
+        .filter(event => event.date > new Date())
+        // Sort by date
+        .sort((a, b) => a.date > b.date);
       }, true);
     // Do initial loading of information
     $scope.load = function() {
@@ -49,7 +53,7 @@ angular.module('events').controller('HomeEventsController', ['$scope', 'Events',
       }, function(error) {
         console.log('Unable to retrieve listings:', error);
       });
-    }
+    };
     $scope.load();
     // Route to single event page on click
     $scope.eventWasClicked = function(id) {
