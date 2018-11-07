@@ -1,5 +1,5 @@
 angular.module('userevents').controller('UserEventsController', ['$scope', 'UserEvents', 
-  function($scope, Events) {
+  function($scope, UserEvents) {
     $scope.model = {
       user_id: '',
       events: []
