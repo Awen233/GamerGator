@@ -48,8 +48,15 @@ body {
   margin: 20px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   border-radius: 5px;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
   background-color: white;
+}
+
+#filter-note {
+  text-align: right;
+  margin: 5px 0px 0px 0px;
+  color: #777777;
+  font-size: 12px;
 }
 
 #default-filters > input {
