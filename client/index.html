@@ -35,10 +35,13 @@
       <fieldset>
           <legend>Filter the events</legend>
           <div class='pure-g' id='default-filters'>
-            <input class='pure-u-1 pure-u-md-5-24' ng-repeat='field in searchFields.filters' type='{{field.type}}' ng-model='model.searchParams[field.model]' placeholder='{{field.placeholder}}' min='{{field.min}}'>
+            <label class='pure-u-1 pure-u-md-1-3 pure-u-lg-1-5 pure-u-xl-1-6' ng-repeat='field in searchFields.filters' for='{{field.model}}'>
+              {{ field.label }}
+              <input type='{{field.type}}' ng-model='model.searchParams[field.model]' min='{{field.min}}'>
+            </label>
           </div>
           <div class='pure-g'>
-            <div class='pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-5 pure-u-xl-1-6' ng-repeat='category in searchFields.categories'>
+            <div class='pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5' ng-repeat='category in searchFields.categories'>
               <label class='pure-checkbox' for='{{category}}'>
                   <input type='checkbox' ng-model='model.searchParams.categories[category]'>
                   {{category}}
@@ -53,8 +56,8 @@
       <ol id='event-list' ng-if='model.shownEvents.length > 0'>
         <li class='event-card' ng-repeat='event in model.shownEvents' ng-click='eventWasClicked(event._id)'>
           <!-- Add a little age indicator -->
-          <div class='age-indicator' ng-if='event.minAge'>
-            <label>{{event.minAge + '+'}}</label>
+          <div class='age-indicator' ng-if='event.age'>
+            <label>{{event.age + '+'}}</label>
           </div>
           <img class="pure-img" src="game.jpg">
           <div class='card-body'>

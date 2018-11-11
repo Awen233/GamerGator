@@ -9,6 +9,7 @@ angular.module('events').controller('HomeEventsController', ['$scope', 'Events',
       searchParams: {
         title: '',
         host: '',
+        age: null,
         categories: {}
       },
       allEvents: [],
@@ -36,7 +37,7 @@ angular.module('events').controller('HomeEventsController', ['$scope', 'Events',
         // Check that the event host name contains the searched host name
         .filter(event => event.host.toLowerCase().includes($scope.model.searchParams.host.toLowerCase()))
         // Check that the event's recommended age is less than or equal to the maximum age
-        .filter(event => !event.age || event.age <= $scope.model.searchParams.age)
+        .filter(event => !event.age || !$scope.model.searchParams.age || event.age <= $scope.model.searchParams.age)
         // Check that the event contains all the search categories
         .filter(event =>
           categories.filter(category => !event.categories.includes(category)).length == 0
@@ -44,12 +45,17 @@ angular.module('events').controller('HomeEventsController', ['$scope', 'Events',
         // Check that the event is upcoming
         .filter(event => event.date > new Date())
         // Sort by date
-        .sort((a, b) => a.date > b.date);
+        .sort((a, b) => a.date - b.date);
       }, true);
     // Do initial loading of information
     $scope.load = function() {
       Events.api.getAll().then(function(res) {
-        $scope.model.allEvents = res.data;
+        $scope.model.allEvents = res.data
+        .map(event => {
+          var newEvent = Object.assign({}, event);
+          newEvent.date = new Date(event.date);
+          return newEvent;
+        });
       }, function(error) {
         console.log('Unable to retrieve listings:', error);
       });
