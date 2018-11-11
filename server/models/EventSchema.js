@@ -22,6 +22,9 @@ var eventSchema = new Schema({
         ref: "User"
       }
   ],
+  age: {
+    type: Number
+  },
   date: {
     type: Date,
     required: true
