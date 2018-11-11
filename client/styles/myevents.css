@@ -70,14 +70,14 @@ body {
   margin-right: 5px;
 }
 
-#filter-box {
+#boxed-el {
   margin: 50px auto;
   width: 55%;
-  height: 75%;
+  height: 150px;
   align-self: center;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   background-color: white;
 }
 
@@ -87,20 +87,10 @@ body {
   margin-top: 10px;
 }
 
-.button-error {
-    font-size: 1em;
-    object-fit: scale-down;
-    background: #0058bc; /* this is a maroon */
-    color: white;
-    height: 50%;
-    width: 100%;
-    border-radius: 4px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-}
-
 
 .calendar-wrapper {
-  object-fit: contain;
+  position: relative;
+
   display: flex;
   padding-top: 0;
   position: relative;
@@ -160,7 +150,7 @@ body {
 }
 
 #thetitle{
-  font-size: 2em;
+  font-size: 1.5em;
   color: black;
   font-weight: bold;
 }
@@ -170,3 +160,7 @@ body {
   color: gray;
 }
 
+
+li {
+  list-style-type: none;
+}
