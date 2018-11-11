@@ -45,7 +45,21 @@ angular.module('events').controller('HomeEventsController', ['$scope', 'Events',
         // Check that the event is upcoming
         .filter(event => event.date > new Date())
         // Sort by date
-        .sort((a, b) => a.date - b.date);
+        .sort((a, b) => a.date - b.date)
+        // Format the date
+        .map(event => {
+          var newEvent = Object.assign({}, event);
+          newEvent.date = event.date.toLocaleDateString();
+          return newEvent;
+        })
+        // Fix the description if needed
+        .map(event => {
+          var newEvent = Object.assign({}, event);
+          if (!newEvent.description) {
+            newEvent.description = 'No description was given.'
+          }
+          return newEvent;
+        });
       }, true);
     // Do initial loading of information
     $scope.load = function() {
