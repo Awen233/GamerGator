@@ -28,8 +28,10 @@ var eventSchema = new Schema({
   date: {
     type: Date,
     required: true
+  },
+  description: {
+    type: String
   }
-
 });
 
 
