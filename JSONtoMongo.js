@@ -27,52 +27,51 @@ Event.remove({}, function(err){
     console.log(err);
   } else {
      console.log("Removed Events!");
-  }
-});
-
-fs.readFile('./events.json', function read(err, data){
-  if (err){
-    console.log(err);
-  }
-  eventsData = JSON.parse(data);
-  eventsData.entries.forEach(function (event){
-
-    var thisEvent =  Event(event);
-    thisEvent.save(function(err){
-      if (err) {
+     fs.readFile('./events.json', function read(err, data){
+      if (err){
         console.log(err);
-      } else {
-        console.log('Event created!');
       }
-    }); 
-   });
+      eventsData = JSON.parse(data);
+      eventsData.entries.forEach(function (event){
+
+        var thisEvent =  Event(event);
+        thisEvent.save(function(err){
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('Event created!');
+          }
+        }); 
+       });
+    });
+  }
 });
+
+
 
 User.remove({}, function (err){
   if (err){
     console.log(err);
   } else {
      console.log("Removed Users!");
-  }
-});
-
-
-fs.readFile('./users.json', function read(err, data){
-  if (err){
-    console.log(err);
-  }
-  usersData = JSON.parse(data);
-  usersData.entries.forEach(function (user){
-
-    var thisUser =  User(user);
-    thisUser.save(function(err){
-      if (err) {
+     fs.readFile('./users.json', function read(err, data){
+      if (err){
         console.log(err);
-      } else {
-        console.log('User created!');
       }
-    }); 
-   });
+      usersData = JSON.parse(data);
+      usersData.entries.forEach(function (user){
+
+        var thisUser =  User(user);
+        thisUser.save(function(err){
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('User created!');
+          }
+        }); 
+       });
+    });
+  }
 });
 
 
