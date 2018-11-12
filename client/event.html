@@ -23,63 +23,36 @@
 
 
     <div class="container">
-      <div class="row">   <style>
-        h1{ 
-        font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
-        margin: 30px;
-        }
+      <div class="row">   
+        <style>
+         h1{ 
+             font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+             margin: 30px;
+          }
         </style>
-        <h1> Event Title 18+ </h1>
-          <label for="age">Age Limit</label>
-          <select id="age" name="ageRestriction">
-          <optgroup label="Restrictions">
-        <option value="Restricted">18+</option>
-        <option value="E">None</option>
-        </optgroup>
-          </select>  
+          <h1> {{Event.name}}</h1>
 
        <div class="col-md-6">
           <div class="jumbotron">
-          <script>
-            var geocoder;
-            var map;
-            function initialize() {
-                geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(29.6516,-82.3248);
-                var mapOptions = {
-                zoom: 8,
-                center: latlng
-               }
-              map = new google.maps.Map(document.getElementById('map'), mapOptions);
-           }
+            <div id="map" style="width:450px;height:500px">
+       <script>
+        function initMap() {
+         var eventLocation= {event.address.latitude, event.address.longitude}; 
+         var mapOptions = {
+            center: eventLocation,
+            zoom: 8
+          }; 
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker= new google.maps.Marker({position: eventLocation, map: map});
+      }
+    </script>
 
-        function codeAddress() {
-            var address = document.getElementById('address').value;
-            geocoder.geocode( { 'address': address}, function(results, status) {
-               if (status == 'OK') {
-                  map.setCenter(results[0].geometry.location);
-                  var marker = new google.maps.Marker({
-                  map: map,
-                  position: results[0].geometry.location
-            });
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-           }
-            });
-       }
-      </script>
-            <body onload="initialize()">
-               <div id="map" style="width: 450px; height: 500px;"></div>
-              <div>
-               <p>      </p>
-              <input id="address" type="textbox" value=" Address,Gainesville,Fl ">
-              <input type="button" value="Set Location" onclick="codeAddress()">
-              </div>
-            </body> 
         </div>
-        </div>
+      </div>
+    </div>
 
         <div class="col-md-6">
+         
           <style>
              h2{ 
                margin: 20px;
@@ -87,14 +60,13 @@
               font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
              }
             </style>
+
              <div class="page-header">
-            <h3>   
-            <p>      </p>
-            <p> Date  <input type="text" name="date" placeholder="  00/00/0000  "></p>
-      
-      <p>      </p>
-            </h3>
-            </div>
+              <h3> 
+                <p> Date <td>{{event.date}}</td></p> 
+                <p> Host <td>{{event.host }}</td></p>
+                </h3></div>
+
             <style>
             h3{ 
                margin: 20px;
@@ -102,22 +74,24 @@
                font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
              }
             </style>
+
             <center><h3> Description </h3></center>
+             
              <style>
              textarea{
               margin: 20px;
              }
              </style>
-            <center> <textarea  rows="12" cols="95" name="description"></textarea> </center>
+
+            <center> <td>{{event.description}}</td></textarea> </center>
+
             <div>
-             <center>
-              <button class="" ng-click="addToMyEvents()">Add</button>
-              <td><button type="button" class="btn btn-danger" ng-click="deleteEvent()" ><span class="glyphicon glyphicon-trash"></span></button></td>
+             <center><button class="" ng-click="addToMyEvents($index)">Add</button>
+              <td><button type="button" class="btn btn-danger" ng-click="deleteFromMyEvents($index)" ><span class="glyphicon glyphicon-trash"></span></button></td>
               </center>
             </div>
+
           </div>
-        </div>
-      </div>
     </div>
 
 

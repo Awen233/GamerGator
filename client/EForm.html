@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
   </head>
 
+
+  <body ng-app="eventForm">
+
     <div id='navbar' class='pure-menu pure-menu-horizontal'>
       <div id='navcontent'>
         <a class='pure-menu-heading pure-menu-link' href='#'>
@@ -23,14 +26,17 @@
         <div class="col-md-6">
 
           <center>
+<center>
          <div class="jumbotron">
    
             <div class="container">
+         <div class="container">
              <div class="form-style-5">
             <form>
             <h2>New Event</h2>
             <h2>    </h2>
             <p>Date <input type="text" name="field1" placeholder="00/00/0000"> </p>
+            <p>Date <input type="date" name="field1" placeholder="00/00/0000"> </p>
              <p>Host <input type="text" name="Host" placeholder="John Doe"> </p>
              <label for="age">Age Restriction</label>
           <select id="age" name="ageRestriction">
@@ -103,6 +109,7 @@
      </div>
       </center>
     </div>
+
 
          <div class="col-md-6">
           <div class="jumbotron">
