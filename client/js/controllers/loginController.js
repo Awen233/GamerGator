@@ -1,6 +1,5 @@
-angular.module('users').controller('LoginController', ['$scope', 'users',
-    function ($scope, users) {
-        $scope.users = users;
+angular.module('Login').controller('LoginController', ['$scope', 'LoginFactory',
+    function ($scope, factory) {
 
         $scope.addListing = function () {
             var update = {

@@ -1,5 +1,5 @@
-angular.module('events').controller('SingleEventController', ['$scope', 'Events', 
-  function($scope, Events) {
+angular.module('SingleEvent').controller('SingleEventController', ['$scope', 'SingleEventFactory', 
+  function($scope, factory) {
    
   
       $scope.loadEvent= function () {
@@ -9,7 +9,7 @@ angular.module('events').controller('SingleEventController', ['$scope', 'Events'
         console.log('Unable to retrieve event', error);
       });
     }
-    $scope.load();
+    $scope.loadEvent();
 
     $scope.detailedInfo = undefined;
 

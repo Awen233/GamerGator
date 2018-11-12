@@ -1,5 +1,5 @@
-angular.module('userevents').controller('UserEventsController', ['$scope', '$window', 'UserEvents', '$cookies',  
-  function($scope, $window, UserEvents, $cookies) {
+angular.module('MyEvents').controller('MyEventsController', ['$scope', '$window', 'MyEventsFactory', '$cookies',  
+  function($scope, $window, factory, $cookies) {
     $scope.model = {
       user_id: '',
       events: []
@@ -7,7 +7,7 @@ angular.module('userevents').controller('UserEventsController', ['$scope', '$win
 
     // Do initial loading of information
     $scope.load = function() {
-      UserEvents.api.getMy($scope.model.user_id).then(function(res) {
+      factory.api.getMy($scope.model.user_id).then(function(res) {
         $scope.model.events = res.data;
       }, function(error) {
         console.log('Unable to retrieve my events:', error);

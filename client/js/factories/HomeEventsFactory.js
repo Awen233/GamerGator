@@ -1,4 +1,4 @@
-angular.module('events').factory('HomeEvents', function($http) {
+angular.module('HomeEvents').factory('HomeEventsFactory', function($http) {
   const apiBase = 'http://localhost:8080/api';
   const api = {
     getAll: function() {

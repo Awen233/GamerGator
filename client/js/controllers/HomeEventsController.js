@@ -1,6 +1,6 @@
-angular.module('events').controller('HomeEventsController', ['$scope', '$cookies', '$window', 'Events',  
-  function($scope, $cookies, $window, Events) {
-    $scope.searchFields = Events.searchFields;
+angular.module('HomeEvents').controller('HomeEventsController', ['$scope', '$cookies', '$window', 'HomeEventsFactory',  
+  function($scope, $cookies, $window, factory) {
+    $scope.searchFields = factory.searchFields;
     $scope.model = { // Also functions as a view model b/c of two-way binding
       searchParams: {
         title: '',
@@ -55,7 +55,7 @@ angular.module('events').controller('HomeEventsController', ['$scope', '$cookies
       }, true);
     // Do initial loading of information
     $scope.load = function() {
-      Events.api.getAll().then(function(res) {
+      factory.api.getAll().then(function(res) {
         $scope.model.allEvents = res.data
         .map(event => {
           var newEvent = Object.assign({}, event);

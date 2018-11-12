@@ -2,12 +2,12 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/event.css">
+    <link rel="stylesheet" href="styles/editevent.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
   </head>
 
 
-  <body ng-app="eventForm">
+  <body ng-app="EventsApp">
 
     <div id='navbar' class='pure-menu pure-menu-horizontal'>
       <div id='navcontent'>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-  <body ng-controller="eventForm">
+  <body ng-controller="EditEventController">
         <div class="col-md-6">
 
           <center>
@@ -100,7 +100,7 @@
              }
              </style>
             <p>Description <textarea name="description" rows="12" cols="50" placeholder="Description"></textarea> </p>
-            <button ng-click="addEvent())">SUBMIT</button>
+            <button ng-click="addEvent()">SUBMIT</button>
             <button ng-click="addEvent()">SUBMIT</button>
             </form>
           </div>
@@ -154,9 +154,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="https://code.angularjs.org/1.6.3/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-cookies.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/EditEventFactory.js"></script>
+    <script src="js/controllers/EditEventController.js"></script>
   </body>
 </html>
