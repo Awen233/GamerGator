@@ -1,8 +1,6 @@
-angular.module('events').controller('HomeEventsController', ['$scope', '$cookies', 'Events', 
-  function($scope, $cookies, Events) {
+angular.module('events').controller('HomeEventsController', ['$scope', '$cookies', '$window', 'Events',  
+  function($scope, $cookies, $window, Events) {
     $scope.searchFields = Events.searchFields;
-    const token = $cookies.get('token');
-    console.log('token: ' + token);
     $scope.model = { // Also functions as a view model b/c of two-way binding
       searchParams: {
         title: '',
@@ -12,10 +10,8 @@ angular.module('events').controller('HomeEventsController', ['$scope', '$cookies
       },
       allEvents: [],
       shownEvents: [],
-      loggedIn: token ? true : false
+      loggedIn: $cookies.get('token') != undefined
     };
-    $cookies.put('token', 'ajhsdh3242jh3gyewhdb');
-    console.log($cookies.getAll());
     // This is the only place where shown events should be set
     $scope.$watch('model', function() {
         // Filter all events using search params
@@ -71,9 +67,20 @@ angular.module('events').controller('HomeEventsController', ['$scope', '$cookies
       });
     };
     $scope.load();
+    // Nav bar routing
+    $scope.myEventsWasClicked = function() {
+      $window.location.href = 'myevents.html';
+    };
+    $scope.logInWasClicked = function() {
+      $window.location.href = 'login.html';
+    };
+    $scope.signUpWasClicked = function() {
+      $window.location.href = 'register.html';
+    };
     // Route to single event page on click
     $scope.eventWasClicked = function(id) {
-      console.log('Event clicked with id: ' + id);
+      $cookies.put('selectedEvent', id);
+      $window.location.href = 'event.html';
     };
   }
 ]);
