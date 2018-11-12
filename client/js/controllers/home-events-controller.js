@@ -67,16 +67,6 @@ angular.module('events').controller('HomeEventsController', ['$scope', '$cookies
       });
     };
     $scope.load();
-    // Nav bar routing
-    $scope.myEventsWasClicked = function() {
-      $window.location.href = 'myevents.html';
-    };
-    $scope.logInWasClicked = function() {
-      $window.location.href = 'login.html';
-    };
-    $scope.signUpWasClicked = function() {
-      $window.location.href = 'register.html';
-    };
     // Route to single event page on click
     $scope.eventWasClicked = function(id) {
       $cookies.put('selectedEvent', id);
