@@ -38,12 +38,14 @@
 
 
 
-
+body{
+    background-color: #fafafa;
+}
 
 
 h2 {
     text-align: center;
-    color: #ff7895;
+    color: #0058bc;
 }
 
 #searchBar {
@@ -56,44 +58,18 @@ h2 {
 }
 
 .btn-warning {
-    background-color: #ff95bb;
+    background-color: #0058bc;
 }
 
-label{
-    color: #ff7895;
-}
+
 
 body {
-    background-image: url("123.jpg");
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 
 }
 
-#addListingAge {
-    color: #ff7895;
-}
 
-input[type="text"]::-webkit-input-placeholder {
-    color: #ff7895 !important;
-}
-
-input[type="text"]:-moz-placeholder {
-    color: #ff7895 !important;
-}
-
-input[type="text"]::-moz-placeholder {
-    color: #ff7895 !important;
-}
-
-input[type="text"]:-ms-input-placeholder {
-    color: #ff7895 !important;
-}
 
 .register-input {
-    color: #ff7895;
+    color: #0058bc;
 }
 
