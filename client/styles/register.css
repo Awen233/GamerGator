@@ -1,0 +1,115 @@
+#searchBar {
+    margin: 15px 10px;
+}
+
+.tableWrapper {
+    max-height: 400px;
+    overflow: auto;
+}
+
+h1 {
+    color: black;
+
+}
+
+h3 {
+    color: black;
+
+}
+
+h4{
+    font-family: helvetica;
+    color: #0058bc;
+}
+
+.btn-warning {
+    background-color: #2564ff;
+}
+
+label{
+    color: black;
+}
+form{
+    align-content: center;
+}
+
+
+#addListingAge {
+    color: white;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    color: white !important;
+}
+
+input[type="text"]:-moz-placeholder {
+    color: white !important;
+}
+
+input[type="text"]::-moz-placeholder {
+    color: white !important;
+}
+
+input[type="text"]:-ms-input-placeholder {
+    color: white !important;
+}
+
+.register-input {
+    color: black;
+}
+
+
+body {
+  background-color: #fafafa;
+  font-family: sans-serif;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#navcontent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+}
+#navcontent > .pure-menu-heading > img {
+  width: 100px;
+}
+#navbar-menu-list {
+  margin-right: 15px;
+}
+#navbar-menu-list > li > a:active {
+  color: #bbbbbb;
+  text-shadow: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3) inset;
+}
+#navbar-menu-list > li > a {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 20px;
+  transition: all 0.1s;
+  color: #0058bc;
+  text-shadow: 0 1px rgba(0,0,0,0.2);
+}
+
+#filter-box {
+  position: fixed;
+  margin: 50px auto;
+  width: 55%;
+  height: 80%;
+  align-content: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: white;
+}
