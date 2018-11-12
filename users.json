@@ -1,0 +1,35 @@
+{
+    "entries": [
+        {
+            "user_Id": "somoza123",
+            "passWord": "apples321",
+            "email": "123@gmail.com",
+            "first_name": "mike",
+            "last_name": "somoza",
+            "age": "22"
+        }, 
+        {
+            "user_Id": "amber03",
+            "passWord": "bananas321",
+            "email": "amb12@gmail.com",
+            "first_name": "amber",
+            "last_name": "diaz",
+            "age": "22"
+        },
+        {
+            "user_Id": "denis925",
+            "passWord": "apples321",
+            "email": "dsomo@gmail.com",
+            "first_name": "denis",
+            "last_name": "somoza",
+            "age": "30"
+        }
+    ]
+
+
+
+
+
+
+
+}
