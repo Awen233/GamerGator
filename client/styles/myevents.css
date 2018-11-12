@@ -73,7 +73,7 @@ body {
 #boxed-el {
   margin: 50px auto;
   width: 55%;
-  height: 150px;
+  height: 90px;
   align-self: center;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   border-radius: 5px;
