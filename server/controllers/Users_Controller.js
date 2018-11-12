@@ -1,27 +1,50 @@
 var mongoose = require('mongoose'),
     User = require('../models/UserSchema.js'),
     Event = require('../models/EventSchema.js'),
+    bcrypt = require('bcryptjs'),
     config = require('../config/config.js');
 
 
 
 
-    mongoose.connect(config.db.uri, {useMongoClient:true});
+mongoose.connect(config.db.uri, {useMongoClient:true});
+
+exports.getUserById = function(id, callback){
+  User.findById(id, callback);
+}
 
 exports.create = function(req, res) {
   var user = new User(req.body);
-    user.save(function(err) {
-      if(err) {
-        console.log(err);
-        res.status(400).send(err);
-      } else {
-        res.json(user);
-      }
+
+  bcrypt.genSalt(10, function(err, salt){
+    bcrypt.hash(user.passWord, salt, (err, hash) => {
+      if(err) throw err;
+      user.passWord = hash;
+      user.save(function(err) {
+          if(err) {
+            console.log(err);
+            res.status(400).send(err);
+          } else {
+            res.json(user);
+          }
+      });
+    });
   });
 };
 exports.show = function(req, res){
   res.json(req.user);
 };
+
+exports.addUser = function(newUser, callback){
+  bcrypt.genSalt(10, function(err, salt){
+    bcrypt.hash(newUser.password, salt, (err, hash) => {
+      if(err) throw err;
+      newUser.password = hash;
+      newUser.save(callback);
+    });
+  });
+}
+
 
 exports.delete = function(req, res) {
   var user = req.user;
@@ -65,7 +88,7 @@ exports.userList = function(req, res) {
 exports.myEvents = function (req, res){
   var user = req.user;
   Event.find({users: user._id}, function (err, events){
-    if(err){ 
+    if(err){
       console.log(err);
     } else {
       res.json(events);

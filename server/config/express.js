@@ -1,11 +1,16 @@
-var path = require('path'),  
-    express = require('express'), 
+var path = require('path'),
+    express = require('express'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
     eventsRouter = require('../routes/events.server.routes.js'),
-    usersRouter = require('../routes/users.server.routes.js');
+    usersRouter = require('../routes/users.server.routes.js'),
+    test = require('../routes/test.js'),
+    authentication = require('../routes/authentication.js');
+    passport = require('passport');
+
+
 
 module.exports.init = function() {
   //connect to database
@@ -17,10 +22,10 @@ module.exports.init = function() {
   //enable request logging for development debugging
   app.use(morgan('dev'));
 
-  //body parsing middleware 
+  //body parsing middleware
   app.use(bodyParser.json());
 
-  
+
   /**TODO
   Serve static files */
   app.use(express.static('client'));
@@ -32,21 +37,28 @@ module.exports.init = function() {
     next();
   });
 
-  /**TODO 
+  //passport middleware
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+  require('./passport')(passport);
+
+
+  /**TODO
   Use the events router for requests to the api */
   app.use("/api/events", eventsRouter); // eventsRouter is currently pointing to '/api/events'
   app.use("/api/users", usersRouter);
+  app.use("/api/test", test);
+  app.use("/api/authentication", authentication);
 
-  /**TODO 
-  Go to homepage for all routes not specified */ 
+
+  /**TODO
+  Go to homepage for all routes not specified */
   app.get("/", function(req, res){
     res.render("index");
   });
 
  // LOGIN
 
- 
-
-
   return app;
-};  
+};
