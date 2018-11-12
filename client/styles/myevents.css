@@ -1,0 +1,166 @@
+html {
+	min-width: 400px;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#navcontent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+}
+#navcontent > .pure-menu-heading > img {
+  width: 100px;
+}
+#navbar-menu-list {
+  margin-right: 15px;
+}
+#navbar-menu-list > li > a:active {
+  color: #bbbbbb;
+  text-shadow: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3) inset;
+}
+#navbar-menu-list > li > a {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 20px;
+  transition: all 0.1s;
+  color: #0058bc;
+  text-shadow: 0 1px rgba(0,0,0,0.2);
+}
+
+.banner {
+    background-color: #0058bc;
+    background: transparent url('https://www.colorhexa.com/0058bc.png') 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://image.jimcdn.com/app/cms/image/transf/none/path/sa36cc86161d91e7e/image/i89a6ab280b9c2738/version/1475659238/image.jpg', sizingMethod='scale');
+
+    height: 325px;
+    width: 100%;
+    margin-bottom: 1em;
+    display: table;
+}
+ .banner-head {
+        display: table-cell;
+        vertical-align: middle;
+        margin-bottom: 0;
+        font-size: 2em;
+        color: white;
+        font-weight: 500;
+        text-shadow: 0 3px 3px black;
+}
+
+#default-filters > input {
+  margin-right: 5px;
+}
+
+#boxed-el {
+  margin: 50px auto;
+  width: 55%;
+  height: 90px;
+  align-self: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+}
+
+#thedate{
+  align-content: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+
+.calendar-wrapper {
+  position: relative;
+
+  display: flex;
+  padding-top: 0;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: auto;
+  right: 0;
+  display: inline-block;
+  width: 55%;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5)
+}
+
+.calendar {
+
+  padding-top: 100%;
+  background: white;
+  overflow: hidden;
+}
+
+.month {
+
+  margin: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 0;
+  padding: 2% 0;
+  text-align: center;
+  background: #0058bc;
+  color: white;
+  font-size: 1.5vw;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
+.day {
+
+  padding: 0 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  top: 36%;
+  color:black;
+  font-size: 3vw;
+}
+
+.calendar-effect {
+  
+  position: relative;
+  top: 36%;
+  opacity: 0.3;
+  box-shadow: 0 -3px 3px -1px black;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+#thetitle{
+  font-size: 1.5em;
+  color: black;
+  font-weight: bold;
+}
+#thelocation{
+  font-style: italic;
+  font-size: 1em;
+  color: gray;
+}
+
+
+li {
+  list-style-type: none;
+}
