@@ -58,7 +58,6 @@
     <div>
       <ol id='event-list' ng-if='model.shownEvents.length > 0'>
         <li class='event-card' ng-repeat='event in model.shownEvents' ng-click='eventWasClicked(event._id)'>
-          <!-- Add a little age indicator -->
           <div class='age-indicator' ng-if='event.age'>
             <label>{{event.age + '+'}}</label>
           </div>

@@ -1,4 +1,4 @@
-angular.module('users').controller('loginController', ['$scope', 'users',
+angular.module('users').controller('LoginController', ['$scope', 'users',
     function ($scope, users) {
         $scope.users = users;
 
