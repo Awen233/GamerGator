@@ -29,7 +29,7 @@ exports.delete = function(req, res) {
       }
     });
   } else {
-    res.render('you are not allowed ');
+    res.status(401);
   }
 };
 
@@ -55,9 +55,9 @@ exports.show = function(req, res) {
     if (err) {
       res.status(404).send(err);
     } else {
-      var event = req.event;
+      var event = Object.assign({}, req.event._doc);
       event.host = {
-        username: event.host,
+        username: req.event.host,
         first_name: user.first_name,
         last_name: user.last_name
       };
@@ -80,7 +80,7 @@ exports.eventList = function(req, res) {
   });
 };
 
-exports.addUser = function (req, res){
+exports.addUser = function (req, res) {
   var event = req.event;
   var user = req.user;
   Object.assign(event, req.body);
@@ -97,10 +97,9 @@ exports.addUser = function (req, res){
   });
 };
 
-exports.unRegister = function (req, res){
+exports.unRegister = function(req, res) {
   var event = req.event; 
   var user = req.user;
-
   Event.findByIdAndUpdate(event._id, 
     {$pull: {users: user.username}},
     {safe: true, upsert: true},

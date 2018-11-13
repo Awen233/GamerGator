@@ -28,34 +28,7 @@
           Here are your upcoming events
           </h1>
     </div>
-
-    <ol>
-      <li ng-repeat='event in model.events' ng-click='eventWasClicked(event.id)'>
-        <div class = "pure-g" id ="filter-box">
-
-               <div class="pure-u-5-24"> 
-             <div class="calendar-wrapper">
-                 <div class="calendar">
-                  <div class="month">Month</div>
-                  <div class="day">10</div>
-                  <div class="calendar-effect"></div>
-                </div>
-              </div>    
-        </div>
-        <div class = "pure-u-14-24">
-            <div id="thetitle">{{event.title}}</div>
-            <div id="thelocation">This is the location</div>
-            <br>
-            <div id="descript">{{event.description}}</div>
-        </div>
-        <div class = "pure-u-5-24">
-          <button class="button-error">Remove Event</button>
-        </div>
-        </div>
-      </li>
-    </ol>
-
-
+    
     <ol>
     <li ng-repeat='event in model.events' ng-click='eventWasClicked(event._id)'>
     <div class="pure-g" id="boxed-el">

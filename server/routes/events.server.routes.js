@@ -10,18 +10,18 @@ var events = require('../controllers/Events_controller.js'),
  */
 router.route('/')
   .get(events.eventList)
-  .post(passport.authenticate('jwt', {session: false}) ,events.create);
+  .post(passport.authenticate('jwt', {session: false}), events.create);
 
 router.route('/:eventId')
   .get(events.show) 
-  .delete(passport.authenticate('jwt', {session: false}) ,events.delete)
-  .put(passport.authenticate('jwt', {session: false}) ,events.update);
+  .delete(passport.authenticate('jwt', {session: false}), events.delete)
+  .put(passport.authenticate('jwt', {session: false}), events.update);
 
-router.route('/:eventId/:userId/register') 
-  .put(passport.authenticate('jwt', {session: false}) ,events.addUser);
+router.route('/:eventId/register') 
+  .put(passport.authenticate('jwt', {session: false}), events.addUser);
 
-router.route('/:eventId/:userId/unregister') 
-  .put(passport.authenticate('jwt', {session: false}) ,events.unRegister);
+router.route('/:eventId/unregister') 
+  .put(passport.authenticate('jwt', {session: false}), events.unRegister);
 
 
 /*
@@ -38,6 +38,5 @@ router.route('/:eventId/:userId/unregister')
   get, update, or delete that specific event (depending on the HTTP verb specified)
  */
 router.param('eventId', events.eventByID);
-router.param('userId' , events.userByID);
 
 module.exports = router;
