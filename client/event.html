@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    
+  <head> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
      <link rel="stylesheet" href="styles/event.css">
      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
@@ -21,7 +20,6 @@
       </div>
     </div>
 
-
     <div class="container" id='main-content'>
       <div class="row">   
         <style>
@@ -30,14 +28,16 @@
              margin: 30px;
           }
         </style>
+        <div>
           <h1> {{model.event.name}}</h1>
+          </div>
 
        <div class="col-md-6">
           <div class="jumbotron">
             <div id="map" style="width:450px;height:500px">
        <script>
         function initMap() {
-         var eventLocation= {latitude: event.address.latitude, longitude: event.address.longitude}; 
+         var eventLocation= {lat: 29.6516, lng: -82.3248}; 
          var mapOptions = {
             center: eventLocation,
             zoom: 8
@@ -46,7 +46,6 @@
         var marker= new google.maps.Marker({position: eventLocation, map: map});
       }
     </script>
-
         </div>
       </div>
     </div>
@@ -65,7 +64,8 @@
               <h3> 
                 <p> Date: <td>{{model.event.date.toLocaleDateString()}}</td></p> 
                 <p> Host: <td>{{model.event.host.first_name + ' ' + model.event.host.last_name}}</td></p>
-                </h3></div>
+                </h3>
+              </div>
 
             <style>
             h3{ 
@@ -83,7 +83,7 @@
              }
              </style>
 
-            <center ng-if='model.event.description'> <td>{{model.event.description}}</td></textarea> </center>
+            <center ng-if='model.event.description'> <td>{{model.event.description}}</td> </center>
 
             <div id='actions-container'>
              <center>
@@ -94,7 +94,6 @@
               </button>
               </center>
             </div>
-
           </div>
     </div>
 

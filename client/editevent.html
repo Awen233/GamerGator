@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/editevent.css">
@@ -7,150 +8,108 @@
   </head>
 
 
-  <body ng-app="EventsApp">
 
+<body ng-app="EventsApp" ng-controller='EditEventController'>
+
+<div class="container">
     <div id='navbar' class='pure-menu pure-menu-horizontal'>
       <div id='navcontent'>
-        <a class='pure-menu-heading pure-menu-link' href='#'>
-          <img class='pure-img' src= "DND.jpg">
+        <a class='pure-menu-heading pure-menu-link' href='/'>
+          <img class='pure-img' width="100" height="100" src= "DND.jpg">
         </a>
         <ul id='navbar-menu-list' class='pure-menu-list'>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">My Events</a></li>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Log in</a></li>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign up</a></li>
+          <li class="pure-menu-item" ng-if='model.loggedIn'><a href="myevents.html" class="pure-menu-link">My Events</a></li>
+          <li class="pure-menu-item" ng-if='!model.loggedIn'><a href="login.html" class="pure-menu-link">Log in</a></li>
+          <li class="pure-menu-item" ng-if='!model.loggedIn'><a href="register.html" class="pure-menu-link">Sign up</a></li>
         </ul>
       </div>
     </div>
+  </div>
 
-  <body ng-controller="EditEventController">
-        <div class="col-md-6">
-
-          <center>
-<center>
+    <div class="container" id='main-content'> 
          <div class="jumbotron">
-   
-            <div class="container">
-         <div class="container">
-             <div class="form-style-5">
+         <div class="form-style-5">
+            <center>
+              <div>
+                <h2>New Event</h2>
+                <h2>  </h2>
+                <h2>  </h2>
+              </div>
+            </center>
+
             <form>
-            <h2>New Event</h2>
-            <h2>    </h2>
-            <p>Date <input type="text" name="field1" placeholder="00/00/0000"> </p>
-            <p>Date <input type="date" name="field1" placeholder="00/00/0000"> </p>
-             <p>Host <input type="text" name="Host" placeholder="John Doe"> </p>
-             <label for="age">Age Restriction</label>
-          <select id="age" name="ageRestriction">
-          <optgroup label="Age Restrictions">
-        <option value="Restricted">18+</option>
-        <option value="E">None</option>
-        </optgroup>
-          </select>  
-            <p>Event Title <input type="text" name="Title" placeholder="Event Title "> </p>
-            <p>Address <input id="address" type="text" name="address" value=" Address,Gainesville,Fl "
-            </p>
-              <input type="button" value="Set Location" onclick="codeAddress()">
+
+            <h3> Date </h3><input type="date" ng-model= "model.event.date" placeholder=" 00/00/0000 ">
+            <h3> Host </h3><input type="string" ng-model= "model.event.host"placeholder=" John Doe ">
+            <h3> Event Title </h3><input type="string" ng-model= "model.event.event_name" placeholder="Event Title ">
+            <h3> Age Limit </h3><input type="number" min="10" max="18" ng-model= "model.event.age" placeholder="15">
+            <h3> Address </h3><input type="string" ng-model= "model.event.address" value="Address,Gainesville,FL">
+            
+            <h3> Category </h3>
+
             <div class="form-group">  <!-- Checkbox Group !-->
-               <h3> Catergory </h3>
                 <div class="checkbox">
-                <label><input type="checkbox" name="catergory" value="Console">Console</label>
+                <label><input type="checkbox" ng-model= "model.event.categories" value="Console">Console</label>
                 </div>
                 <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="PC">PC</label>
+               <label><input type="checkbox" ng-model= "model.event.categories" value="PC">PC</label>
                 </div>
                  <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Mobile">Mobile</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="Mobile">Mobile</label>
                 </div>
                  <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Board Game">Board game</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="Board Game">Board game</label>
                 </div>
                  <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Arcade">Arcade</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="Arcade">Arcade</label>
                 </div>
                  <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="RolePlaying">Role playing</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="RolePlaying">Role playing</label>
                 </div>
                  <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Fighter">Fighter</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories"  value="Fighter">Fighter</label>
                 </div>
                  <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Racing">Racing</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="Racing">Racing</label>
                 </div>
                  <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Real-time strategy">Real-time strategy</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="Real-time strategy">Real-time strategy</label>
                 </div>
               <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Turn-based strategy">Turn-based strategy</label>
+               <label><input type="checkbox" ng-model= "model.event.catergories" value="Turn-based strategy">Turn-based strategy</label>
                 </div>
                 <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Shooter">Shooter</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="Shooter">Shooter</label>
                 </div>
                  <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Survival">Survival</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="Survival">Survival</label>
                 </div>
                   <div class="checkbox">
-               <label><input type="checkbox"  name="catergory" value="Sports">Sports</label>
+               <label><input type="checkbox"  ng-model= "model.event.catergories" value="Sports">Sports</label>
                 </div>
-
-              </div>  
-         <div class="form-group"> <!-- Submit button !-->
+        </div>  
+         
 
               <style>
-            textarea{
-              margin: 20px;
-             }
-             </style>
-            <p>Description <textarea name="description" rows="12" cols="50" placeholder="Description"></textarea> </p>
-            <button ng-click="addEvent()">SUBMIT</button>
-            <button ng-click="addEvent()">SUBMIT</button>
-            </form>
-          </div>
-        </div>
-        </div>
-     </div>
-      </center>
-    </div>
-
-
-         <div class="col-md-6">
-          <div class="jumbotron">
-          <script>
-            var geocoder;
-            var map;
-            function initialize() {
-                geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(29.6516,-82.3248);
-                var mapOptions = {
-                zoom: 8,
-                center: latlng
+               textarea{
+                 margin: 20px;
                }
-              map = new google.maps.Map(document.getElementById('map'), mapOptions);
-           }
+             </style>
 
-        function codeAddress() {
-            var address = document.getElementById('address').value;
-            geocoder.geocode( { 'address': address}, function(results, status) {
-               if (status == 'OK') {
-                  map.setCenter(results[0].geometry.location);
-                  var marker = new google.maps.Marker({
-                  map: map,
-                  position: results[0].geometry.location
-            });
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-           }
-            });
-       }
-      </script>
-            <body onload="initialize()">
-              <center>
-               <div id="map" style="width: 500px; height: 1420px;"></div> </center>
-              <div>
-               <p>      </p>
-              </div>
-            </body> 
+                <h3> Description </h3>
+                <textarea ng-model= "model.event.description" rows="05" cols="50" placeholder="Enter a short description"></textarea> 
+           
+           <button ng-disabled='!model.event.date || !model.event.event_name || !model.event.host|| !model.event.address' ng-click="createEvent()">SUBMIT</button>
+          </form>
+
+
+
         </div>
         </div>
-    
+        </div>
+   
+
+
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
@@ -159,5 +118,6 @@
     <script src="js/app.js"></script>
     <script src="js/factories/EditEventFactory.js"></script>
     <script src="js/controllers/EditEventController.js"></script>
+  
   </body>
 </html>

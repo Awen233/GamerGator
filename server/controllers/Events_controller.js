@@ -17,6 +17,7 @@ exports.create = function(req, res) {
   });
 };
 
+
 exports.delete = function(req, res) {
   var event = req.event;
   var user = req.user;
