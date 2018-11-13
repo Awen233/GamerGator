@@ -1,36 +1,24 @@
-angular.module('SingleEvent').controller('SingleEventController', ['$scope', 'SingleEventFactory', 
-  function($scope, factory) {
-   
+angular.module('SingleEvent').controller('SingleEventController', ['$scope', 'SingleEventFactory', '$cookies', '$window', 
+  function($scope, factory, $cookies, $window) {
   
+    $scope.loggedIn = $cookies.get('token') != undefined;
+    console.log($scope.loggedIn);
+  
+  $scope.eventID = $cookies.get('selectedEvent');
       $scope.loadEvent= function () {
-      Events.get($scope.Events[index]).then(function(response) {
-        $scope.events = response.events;
+      factory.api.getEvent($scope.eventID).then(function(response) {
+        $scope.event = response.data;
+        $scope.event.date = new Date($scope.event.date);
       }, function(error) {
         console.log('Unable to retrieve event', error);
       });
     }
     $scope.loadEvent();
 
-    $scope.detailedInfo = undefined;
-
-    $scope.addEvent = function() {
-      Events.create($scope.newEvent).then(
+    $scope.delete = function() {
+       factory.api.delete($scope.eventID).then(
         function success(res) {
-          console.log(res);
-          $scope.load();
-          $scope.newEvent = undefined;
-        }, 
-        function error(res) {
-          console.log(res);
-        });
-    };
-
-    $scope.deleteEvent = function(index) {
-       const id = $scope.events[index]._id;
-       Events.delete(id).then(
-        function success(res) {
-          console.log(res);
-          $scope.load();
+          $window.location.href = 'myevents.html';
         }, 
         function error(res) {
           console.log(res);

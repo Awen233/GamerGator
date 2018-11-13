@@ -33,44 +33,36 @@
             <div class="row">
                 <h4 align ="center">Create an Account</h4>
             </div>
-        <form ng-submit="addListing()">
+        <form ng-submit="register()">
 
             <div class="form-group">
                 <label>First Name:</label>
-                <input type="text" ng-model="newListing.name" id="addListingFirstName" class="form-control register-input"
+                <input type="text" ng-model="user.firstName" id="addListingFirstName" class="form-control register-input"
                        placeholder="First Name">
             </div>
 
             <div class="form-group">
                 <br/>
                 <label>Last Name:</label>
-                <input type="text" ng-model="newListing.name" id="addListingLastName" class="form-control register-input"
+                <input type="text" ng-model="user.lastName" id="addListingLastName" class="form-control register-input"
                        placeholder="Last Name">
             </div>
 
             <div class="form-group">
                 <br/>
                 <label>Username:</label>
-                <input type="text" ng-model="newListing.name" id="addListingUsername" class="form-control register-input"
+                <input type="text" ng-model="user.username" id="addListingUsername" class="form-control register-input"
                        placeholder="Username">
             </div>
 
             <div class="form-group">
                 <br/>
                 <label>Password:</label>
-                <input type="text" ng-model="newListing.code" id="addListingCode" class="form-control register-input"
+                <input type="password" ng-model="user.password" id="addListingCode" class="form-control register-input"
                        placeholder="Password">
             </div>
 
-            <!--
-            <div class="form-group">
-                <br/>
-                <label>Reenter Password:</label>
-                <input type="text" ng-model="newListing.name" id="addListing2Code" class="form-control register-input"
-                       placeholder="Reenter Password">
-            </div>
-            -->
-            <button type="submit" class="btn btn-warning">Submit</button>
+            <button type="submit" ng-disabled='!user.firstName || !user.lastName || !user.username || !user.password' class="btn btn-warning">Submit</button>
 
         </div>
 
