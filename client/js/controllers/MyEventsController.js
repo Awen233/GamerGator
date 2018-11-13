@@ -7,7 +7,7 @@ angular.module('MyEvents').controller('MyEventsController', ['$scope', '$window'
 
     // Do initial loading of information
     $scope.load = function() {
-      factory.api.getMy($scope.model.user_id).then(function(res) {
+      factory.api.getMyEvents().then(function(res) {
         $scope.model.events = res.data;
       }, function(error) {
         console.log('Unable to retrieve my events:', error);

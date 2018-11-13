@@ -18,7 +18,7 @@ router.route('/:userId')
   .delete(users.delete)
   .put(users.update);
 
-router.route('/:userId/MyEvents')
+router.route('/myevents')
   .get(users.myEvents);
 
 

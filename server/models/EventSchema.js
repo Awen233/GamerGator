@@ -8,6 +8,7 @@ var eventSchema = new Schema({
   },
   host: {
     type: String,
+    required: true,
   },
   address: {
     type: Number,
@@ -18,8 +19,8 @@ var eventSchema = new Schema({
   },
   users: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        type: String,
+        ref: "User.username"
       }
   ],
   age: {

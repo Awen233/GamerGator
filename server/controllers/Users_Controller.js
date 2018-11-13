@@ -11,8 +11,8 @@ exports.getUserById = function(id, callback){
   User.findById(id, callback);
 }
 
-exports.getUserByEmail = function(email, callback){
-  const query = {email: email};
+exports.getUserByUsername = function(username, callback){
+  const query = {username: username};
   User.findOne(query, callback);
 }
 
@@ -108,6 +108,7 @@ exports.userList = function(req, res) {
 };
 
 exports.myEvents = function (req, res){
+  console.log(req);
   var user = req.user;
   Event.find({users: user._id}, function (err, events){
     if(err){

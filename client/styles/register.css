@@ -10,6 +10,14 @@ a {
     overflow: auto;
 }
 
+#error {
+  color: red;
+}
+
+#success {
+  color: green;
+}
+
 h1 {
     color: black;
 

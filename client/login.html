@@ -36,6 +36,8 @@
         <br><br><br>
 
         <div class = "col-md-4"></div>
+            <label class='pure-u-1' id='error' ng-if='model.errorMessage'>{{model.errorMessage}}</label>
+            <label class='pure-u-1' id='success' ng-if='model.successMessage'>{{model.successMessage}}</label>
             <div class="col-md-4">
                 <form ng-submit="logIn()">
                     <div class="form-group">

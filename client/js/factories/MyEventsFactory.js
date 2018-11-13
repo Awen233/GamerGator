@@ -1,8 +1,8 @@
 angular.module('MyEvents').factory('MyEventsFactory', function($http) {
   const apiBase = 'http://localhost:8080/api';
   const api = {
-    getMy: function(user_id) {
-        return $http.get(apiBase + '/users/' + user_id + '/MyEvents');
+    getMyEvents: function() {
+        return $http.get(apiBase + '/users/myevents');
     },
   };
   return {

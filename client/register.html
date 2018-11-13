@@ -33,18 +33,20 @@
             <div class="row">
                 <h4 align ="center">Create an Account</h4>
             </div>
+        <label class='pure-u-1' id='error' ng-if='model.errorMessage'>{{model.errorMessage}}</label>
+        <label class='pure-u-1' id='success' ng-if='model.successMessage'>{{model.successMessage}}</label>
         <form ng-submit="register()">
 
             <div class="form-group">
                 <label>First Name:</label>
-                <input type="text" ng-model="user.firstName" id="addListingFirstName" class="form-control register-input"
+                <input type="text" ng-model="user.first_name" id="addListingFirstName" class="form-control register-input"
                        placeholder="First Name">
             </div>
 
             <div class="form-group">
                 <br/>
                 <label>Last Name:</label>
-                <input type="text" ng-model="user.lastName" id="addListingLastName" class="form-control register-input"
+                <input type="text" ng-model="user.last_name" id="addListingLastName" class="form-control register-input"
                        placeholder="Last Name">
             </div>
 
@@ -62,7 +64,7 @@
                        placeholder="Password">
             </div>
 
-            <button type="submit" ng-disabled='!user.firstName || !user.lastName || !user.username || !user.password' class="btn btn-warning">Submit</button>
+            <button type="submit" ng-disabled='!user.first_name || !user.last_name || !user.username || !user.password' class="btn btn-warning">Submit</button>
 
         </div>
 

@@ -15,21 +15,21 @@ router.post('/register', (req, res, next) => {
   var newUser = new user(req.body);
   User.addUser(newUser, (err, user) => {
     if(err){
-      res.json({success: false, msg: 'fail'});
+      res.status(400).json({success: false, msg: 'That username is taken.'});
     } else {
       res.json({success: true, msg: 'success'});
     }
   });
 });
 
-router.post('/authentication', (req, res, next) => {
-  const email = req.body.email;
+router.post('/', (req, res, next) => {
+  const username = req.body.username;
   const password = req.body.password;
 
-  User.getUserByEmail(email, (err, user) => {
+  User.getUserByUsername(username, (err, user) => {
     if(err) throw err;
     if(!user){
-      return res.json({success: false, msg: 'User not found'});
+      return res.status(401).json({success: false, msg: 'Invalid username or password.'});
     }
     User.comparePassword(password, user.password, (err, isMatch) => {
       if(err) return err;
@@ -43,11 +43,11 @@ router.post('/authentication', (req, res, next) => {
           user: {
             id: user._id,
             name: user.first_name,
-            email: user.email
+            username: user.username
           }
         });
       } else {
-        return res.json({success: false, msg: 'wrong password'});
+        return res.status(401).json({success: false, msg: 'Invalid username or password.'});
       }
     });
   });

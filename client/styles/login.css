@@ -39,7 +39,13 @@ a {
   text-shadow: 0 1px rgba(0,0,0,0.2);
 }
 
+#error {
+  color: red;
+}
 
+#success {
+  color: green;
+}
 
 body{
     background-color: #fafafa;

@@ -52,7 +52,7 @@ module.exports.init = function() {
   app.use("/api/authentication", authentication);
 
 
-passport.authenticate('jwt', {session: false})
+passport.authenticate('jwt', {session: false});
   // router.get('/profile', (req, res,next) => {
   //   res.send('hello from profile');
   // });
