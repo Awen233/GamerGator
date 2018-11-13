@@ -39,32 +39,32 @@
 
             <div class="form-group">
                 <label>First Name:</label>
-                <input type="text" ng-model="user.first_name" id="addListingFirstName" class="form-control register-input"
+                <input type="text" ng-model="model.user.first_name" id="addListingFirstName" class="form-control register-input"
                        placeholder="First Name">
             </div>
 
             <div class="form-group">
                 <br/>
                 <label>Last Name:</label>
-                <input type="text" ng-model="user.last_name" id="addListingLastName" class="form-control register-input"
+                <input type="text" ng-model="model.user.last_name" id="addListingLastName" class="form-control register-input"
                        placeholder="Last Name">
             </div>
 
             <div class="form-group">
                 <br/>
                 <label>Username:</label>
-                <input type="text" ng-model="user.username" id="addListingUsername" class="form-control register-input"
+                <input type="text" ng-model="model.user.username" id="addListingUsername" class="form-control register-input"
                        placeholder="Username">
             </div>
 
             <div class="form-group">
                 <br/>
                 <label>Password:</label>
-                <input type="password" ng-model="user.password" id="addListingCode" class="form-control register-input"
+                <input type="password" ng-model="model.user.password" id="addListingCode" class="form-control register-input"
                        placeholder="Password">
             </div>
 
-            <button type="submit" ng-disabled='!user.first_name || !user.last_name || !user.username || !user.password' class="btn btn-warning">Submit</button>
+            <button type="submit" ng-disabled='!model.user.first_name || !model.user.last_name || !model.user.username || !model.user.password || model.loading' class="btn btn-warning">Submit</button>
 
         </div>
 

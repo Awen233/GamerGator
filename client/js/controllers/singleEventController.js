@@ -12,8 +12,8 @@ angular.module('SingleEvent').controller('SingleEventController', ['$scope', 'Si
       factory.api.getEvent($scope.model.eventID).then(function(response) {
         $scope.model.event = response.data;
         $scope.model.event.date = new Date($scope.model.event.date);
-        $scope.model.owner = $scope.model.event.host.username == shared.getUsername();
-        $scope.model.registered = $scope.model.event.users.includes(shared.getUsername());
+        $scope.model.owner = $scope.model.event.host.username == shared.getUser().username;
+        $scope.model.registered = $scope.model.event.users.includes(shared.getUser().username);
       }, function(error) {
         console.log('Unable to retrieve event', error);
       });
@@ -39,6 +39,9 @@ angular.module('SingleEvent').controller('SingleEventController', ['$scope', 'Si
       }, function error(res) {
         console.log(res);
       });
+    };
+    $scope.logOut = function() {
+      shared.logOut();
     };
   }
 ]);

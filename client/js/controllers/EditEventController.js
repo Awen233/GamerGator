@@ -36,5 +36,9 @@ angular.module('EditEvent').controller('EditEventController', ['$scope', 'EditEv
 
 
     }
+    	$scope.logOut = function() {
+	      shared.logOut();
+	    };
+}
 ]);
 

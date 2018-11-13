@@ -71,5 +71,8 @@ angular.module('HomeEvents').controller('HomeEventsController', ['$scope', 'Shar
     $scope.eventWasClicked = function(id) {
       shared.showEvent(id);
     };
+    $scope.logOut = function() {
+      shared.logOut();
+    };
   }
 ]);
