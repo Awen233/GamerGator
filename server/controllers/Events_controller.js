@@ -73,7 +73,8 @@ exports.addUser = function (req, res){
   var user = req.user;
   Object.assign(event, req.body);
 
-  event.users.push(user);
+  event.users.push(user.username);
+  console.log(user.username);
 
   Event.findByIdAndUpdate(event._id, event, function(err, event){
     if (err){
@@ -83,6 +84,23 @@ exports.addUser = function (req, res){
     }
   });
 };
+
+exports.unRegister = function (req, res){
+  var event = req.event; 
+  var user = req.user;
+
+  Event.findByIdAndUpdate(event._id, 
+    {$pull: {users: user.username}},
+    {safe: true, upsert: true},
+    function(err, doc) {
+      if(err){
+      console.log(err);
+      }else{
+      res.json(doc);
+      }
+  });
+};
+
 
 
 /*

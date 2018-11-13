@@ -20,6 +20,9 @@ router.route('/:eventId')
 router.route('/:eventId/:userId') 
   .put(passport.authenticate('jwt', {session: false}) ,events.addUser);
 
+router.route('/:eventId/:userId/unregister') 
+  .put(passport.authenticate('jwt', {session: false}) ,events.unRegister);
+
 
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle 
@@ -35,6 +38,6 @@ router.route('/:eventId/:userId')
   get, update, or delete that specific event (depending on the HTTP verb specified)
  */
 router.param('eventId', events.eventByID);
-router.param('userId', events.userByID);
+router.param('userId' , events.userByID);
 
 module.exports = router;
