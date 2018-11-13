@@ -12,6 +12,9 @@ router.route('/')
   .get(users.userList);
 
 router.route('/myevents')
-  .get(passport.authenticate('jwt', {session: false}) ,users.myEvents);
+  .get(passport.authenticate('jwt', {session: false}), users.myEvents);
+
+router.route('/:userId/myevents')
+  .get(passport.authenticate('jwt', {session: false}), users.myEvents);
 
 module.exports = router;

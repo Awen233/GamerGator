@@ -109,8 +109,8 @@ exports.userList = function(req, res) {
 
 exports.myEvents = function (req, res) {
   var user = req.user;
-  Event.find({users: user.username}, function (err, events) {
-    if(err) {
+  Event.find({users: user.username}, function (err, events){
+    if(err){
       console.log(err);
     } else {
       res.json(events);

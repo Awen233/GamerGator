@@ -17,8 +17,11 @@ router.route('/:eventId')
   .delete(passport.authenticate('jwt', {session: false}) ,events.delete)
   .put(passport.authenticate('jwt', {session: false}) ,events.update);
 
-router.route('/:eventId/:userId') 
+router.route('/:eventId/:userId/register') 
   .put(passport.authenticate('jwt', {session: false}) ,events.addUser);
+
+router.route('/:eventId/:userId/unregister') 
+  .put(passport.authenticate('jwt', {session: false}) ,events.unRegister);
 
 
 /*
@@ -35,6 +38,6 @@ router.route('/:eventId/:userId')
   get, update, or delete that specific event (depending on the HTTP verb specified)
  */
 router.param('eventId', events.eventByID);
-router.param('userId', events.userByID);
+router.param('userId' , events.userByID);
 
 module.exports = router;
