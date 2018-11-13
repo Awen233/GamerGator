@@ -5,21 +5,41 @@ var mongoose = require('mongoose'),
     config = require('../config/config.js');
 
 
-
-
 mongoose.connect(config.db.uri, {useMongoClient:true});
 
 exports.getUserById = function(id, callback){
   User.findById(id, callback);
 }
 
+exports.getUserByEmail = function(email, callback){
+  const query = {email: email};
+  User.findOne(query, callback);
+}
+
+exports.addUser = function(newUser, callback){
+  bcrypt.genSalt(10, function(err, salt){
+    bcrypt.hash(newUser.password, salt, (err, hash) => {
+      if(err) throw err;
+      newUser.password = hash;
+      newUser.save(callback);
+    });
+  });
+}
+
+exports.comparePassword = function(candidatePassword, hash, callback){
+  bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+    if (err) return callback(err);
+    callback(null, isMatch);
+  });
+}
+
 exports.create = function(req, res) {
   var user = new User(req.body);
 
   bcrypt.genSalt(10, function(err, salt){
-    bcrypt.hash(user.passWord, salt, (err, hash) => {
+    bcrypt.hash(user.password, salt, (err, hash) => {
       if(err) throw err;
-      user.passWord = hash;
+      user.password = hash;
       user.save(function(err) {
           if(err) {
             console.log(err);
@@ -31,6 +51,8 @@ exports.create = function(req, res) {
     });
   });
 };
+
+
 exports.show = function(req, res){
   res.json(req.user);
 };

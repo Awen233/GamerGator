@@ -6,11 +6,9 @@ var path = require('path'),
     config = require('./config'),
     eventsRouter = require('../routes/events.server.routes.js'),
     usersRouter = require('../routes/users.server.routes.js'),
-    test = require('../routes/test.js'),
     authentication = require('../routes/authentication.js');
     passport = require('passport');
-
-
+const router = express.Router();
 
 module.exports.init = function() {
   //connect to database
@@ -43,14 +41,21 @@ module.exports.init = function() {
 
   require('./passport')(passport);
 
+  app.get("/profile", passport.authenticate('jwt', {session: false}), function(req, res){
+    res.send("simple test");
+  });
 
   /**TODO
   Use the events router for requests to the api */
   app.use("/api/events", eventsRouter); // eventsRouter is currently pointing to '/api/events'
   app.use("/api/users", usersRouter);
-  app.use("/api/test", test);
   app.use("/api/authentication", authentication);
 
+
+passport.authenticate('jwt', {session: false})
+  // router.get('/profile', (req, res,next) => {
+  //   res.send('hello from profile');
+  // });
 
   /**TODO
   Go to homepage for all routes not specified */
