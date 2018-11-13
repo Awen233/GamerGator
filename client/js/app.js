@@ -18,6 +18,9 @@ angular.module('Shared', ['ngCookies']).factory('SharedService', ['$cookies', '$
 			showEvent: function(id) {
 				$cookies.put('selectedEvent', id);
 				$window.location.href = 'event.html';
+			},
+			selectedEvent: function() {
+				return $cookies.get('selectedEvent');
 			}
 		};
 }]);
