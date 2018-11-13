@@ -1,6 +1,8 @@
-angular.module('SingleEvent').controller('SingleEventController', ['$scope', 'SingleEventFactory', '$cookies', '$window', 
-  function($scope, factory, $cookies, $window) {
+angular.module('SingleEvent').controller('SingleEventController', ['$scope', 'SingleEventFactory', '$cookies', '$window', '$http', 
+  function($scope, factory, $cookies, $window, $http) {
   
+      $http.defaults.headers.common.Authorization = $cookies.get('token');
+
     $scope.loggedIn = $cookies.get('token') != undefined;
     console.log($scope.loggedIn);
   

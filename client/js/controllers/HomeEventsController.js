@@ -1,5 +1,5 @@
-angular.module('HomeEvents').controller('HomeEventsController', ['$scope', '$cookies', '$window', 'HomeEventsFactory',  
-  function($scope, $cookies, $window, factory) {
+angular.module('HomeEvents').controller('HomeEventsController', ['$scope', 'SharedService', 'HomeEventsFactory',  
+  function($scope, shared, factory) {
     $scope.searchFields = factory.searchFields;
     $scope.model = { // Also functions as a view model b/c of two-way binding
       searchParams: {
@@ -10,7 +10,7 @@ angular.module('HomeEvents').controller('HomeEventsController', ['$scope', '$coo
       },
       allEvents: [],
       shownEvents: [],
-      loggedIn: $cookies.get('token') != undefined
+      loggedIn: shared.isLoggedIn()
     };
     // This is the only place where shown events should be set
     $scope.$watch('model', function() {
@@ -69,8 +69,7 @@ angular.module('HomeEvents').controller('HomeEventsController', ['$scope', '$coo
     $scope.load();
     // Route to single event page on click
     $scope.eventWasClicked = function(id) {
-      $cookies.put('selectedEvent', id);
-      $window.location.href = 'event.html';
+      shared.showEvent(id);
     };
   }
 ]);
