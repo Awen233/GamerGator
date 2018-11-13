@@ -1,14 +1,13 @@
 angular.module('Login').controller('LoginController', ['$scope', 'LoginFactory',
     function ($scope, factory) {
-
-        $scope.addListing = function () {
-            var update = {
-                user_id: $scope.users.user_id,
-                passWord: $scope.users.passWord,
+        const apiBase = 'http://localhost:8080/api';
+        const api = {
+            logIn: function(user) {
+                // return $http.post(apiBase + '/users', user);
             }
-            $scope.users.push(update);
-            $scope.users.user_id = '';
-            $scope.users.passWord = '';
+        };
+        return {
+            api: api
         };
     }
 ]);
