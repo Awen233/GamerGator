@@ -41,9 +41,21 @@ exports.update = function(req, res) {
   });
 };
 
-exports.show = function(req, res){
-      console.log(req.event);
-      res.json(req.event);
+exports.show = function(req, res) {
+  // Replace host username with username and name
+  User.findOne({username: req.event.host}, function(err, user) {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      var event = req.event;
+      event.host = {
+        username: event.host,
+        first_name: user.first_name,
+        last_name: user.last_name
+      };
+      res.json(event);
+    }
+  });
 };
 
 exports.eventList = function(req, res) {
@@ -87,7 +99,7 @@ exports.addUser = function (req, res){
 exports.eventByID = function(req, res, next, id) {
   Event.findById(id).exec(function(err, event) {
     if(err) {
-      res.status(400).send(err);
+      res.status(404).send(err);
     } else {
       req.event = event;
       next();
@@ -98,7 +110,7 @@ exports.eventByID = function(req, res, next, id) {
 exports.userByID = function(req, res, next, id) {
   User.findById(id).exec(function(err, user) {
     if(err) {
-      res.status(400).send(err);
+      res.status(404).send(err);
     } else {
       req.user = user;
       next();
