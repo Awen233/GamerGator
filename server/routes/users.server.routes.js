@@ -18,7 +18,7 @@ router.route('/:userId')
   .put(passport.authenticate('jwt', {session: false}) ,users.update);
 
 router.route('/:userId/myevents')
-  .get(passport.authenticate('jwt', {session: false}) ,users.myEvents);
+  .get(passport.authenticate('jwt', {session: false}), users.myEvents);
 
 
 

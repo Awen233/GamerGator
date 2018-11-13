@@ -17,7 +17,7 @@ router.route('/:eventId')
   .delete(passport.authenticate('jwt', {session: false}) ,events.delete)
   .put(passport.authenticate('jwt', {session: false}) ,events.update);
 
-router.route('/:eventId/:userId') 
+router.route('/:eventId/:userId/register') 
   .put(passport.authenticate('jwt', {session: false}) ,events.addUser);
 
 router.route('/:eventId/:userId/unregister') 
