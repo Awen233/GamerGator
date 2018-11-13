@@ -1,7 +1,8 @@
 /* Dependencies */
 var events = require('../controllers/Events_controller.js'), 
     express = require('express'), 
-    router = express.Router();
+    router = express.Router(),
+    passport = require('passport');
 
 /* 
   These method calls are responsible for routing requests to the correct request handler.
@@ -9,15 +10,15 @@ var events = require('../controllers/Events_controller.js'),
  */
 router.route('/')
   .get(events.eventList)
-  .post(events.create);
+  .post(passport.authenticate('jwt', {session: false}) ,events.create);
 
 router.route('/:eventId')
   .get(events.show) 
-  .delete(events.delete)
-  .put(events.update);
+  .delete(passport.authenticate('jwt', {session: false}) ,events.delete)
+  .put(passport.authenticate('jwt', {session: false}) ,events.update);
 
 router.route('/:eventId/:userId') 
-  .put(events.addUser);
+  .put(passport.authenticate('jwt', {session: false}) ,events.addUser);
 
 
 /*

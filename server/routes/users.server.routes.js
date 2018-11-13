@@ -1,8 +1,8 @@
 /* Dependencies */
 var users = require('../controllers/Users_Controller.js'),
     express = require('express'),
-    router = express.Router();
-
+    router = express.Router(),
+    passport = require('passport');
 /*
   These method calls are responsible for routing requests to the correct request handler.
   Take note that it is possible for different controller functions to handle requests to the same route.
@@ -10,16 +10,15 @@ var users = require('../controllers/Users_Controller.js'),
 
 
 router.route('/')
-  .post(users.create)
   .get(users.userList);
 
 router.route('/:userId')
-  .get(users.show)
-  .delete(users.delete)
-  .put(users.update);
+  .get(passport.authenticate('jwt', {session: false}) ,users.show)
+  .delete(passport.authenticate('jwt', {session: false}) ,users.delete)
+  .put(passport.authenticate('jwt', {session: false}) ,users.update);
 
-router.route('/myevents')
-  .get(users.myEvents);
+router.route('/:userId/myevents')
+  .get(passport.authenticate('jwt', {session: false}) ,users.myEvents);
 
 
 
