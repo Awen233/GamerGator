@@ -6,7 +6,13 @@ angular.module('SingleEvent').factory('SingleEventFactory', function($http) {
         },
         deleteEvent: function(id) {
         	return $http.delete(apiBase + '/events/' + id);
-        }
+        },
+        registerFor: function(id) {
+            return $http.put(apiBase + '/events/' + id + '/register');
+        },
+        unregisterFrom: function(id) {
+            return $http.put(apiBase + '/events/' + id + '/unregister');
+        },
     };
     return {
         api: api

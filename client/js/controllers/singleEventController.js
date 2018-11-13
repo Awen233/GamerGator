@@ -26,5 +26,19 @@ angular.module('SingleEvent').controller('SingleEventController', ['$scope', 'Si
         console.log(res);
       });
     };
+    $scope.register = function() {
+      factory.api.registerFor($scope.model.eventID).then(function success(res) {
+        $window.location.reload();
+      }, function error(res) {
+        console.log(res);
+      });
+    };
+    $scope.unregister = function() {
+      factory.api.unregisterFrom($scope.model.eventID).then(function success(res) {
+        $window.location.reload();
+      }, function error(res) {
+        console.log(res);
+      });
+    };
   }
 ]);
