@@ -4,18 +4,18 @@ angular.module('EditEvent').controller('EditEventController', ['$scope', 'EditEv
 
 
    $scope.createEvent = function() {
-
-	    $scope.events.push($scope.newEvent); 
+   		Debug.log($scope)
+	   //  $scope.events.push($scope.newEvent); 
 	    
-	    Events.create($scope.newEvent).then(function(err){
-	      $scope.newEvent={}; 
+	   //  Events.create($scope.newEvent).then(function(err){
+	   //    $scope.newEvent={}; 
 	      
-	      if(err){
-	        $scope.errorMessage="Event could not be added ";
-	        console.log('Not able to add event',err);
-	      }
+	   //    if(err){
+	   //      $scope.errorMessage="Event could not be added ";
+	   //      console.log('Not able to add event',err);
+	   //    }
   
-    });
+    // });
     }; 
 
 /*
