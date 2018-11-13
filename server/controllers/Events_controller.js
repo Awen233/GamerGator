@@ -19,26 +19,34 @@ exports.create = function(req, res) {
 
 exports.delete = function(req, res) {
   var event = req.event;
-  event.remove(function(err){
-    if(err){
-      console.log(err);
-    } else {
-      res.json(event);
-    }
-  });
+  var user = req.user;
+  if(event.host == user.username){
+    event.remove(function(err){
+      if(err){
+        console.log(err);
+      } else {
+        res.json(event);
+      }
+    });
+  } else {
+    res.render('you are not allowed ');
+  }
 };
 
 exports.update = function(req, res) {
   var event = req.event;
-  Object.assign(event, req.body);
-  event.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(event);
-    }
-  });
+  var user = req.user;
+  if(event.host == user.username){
+    Object.assign(event, req.body);
+    event.save(function(err) {
+      if(err) {
+        console.log(err);
+        res.status(400).send(err);
+      } else {
+        res.json(event);
+      }
+    });
+  }
 };
 
 exports.show = function(req, res){
@@ -105,5 +113,3 @@ exports.userByID = function(req, res, next, id) {
     }
   });
 };
-
-
