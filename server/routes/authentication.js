@@ -15,7 +15,7 @@ router.post('/register', (req, res, next) => {
   var newUser = new user(req.body);
   User.addUser(newUser, (err, user) => {
     if(err){
-      res.status(400).json({success: false, msg: 'That username is taken.'});
+      res.status(400).json({success: false, msg: err.message});
     } else {
       res.json({success: true, msg: 'success'});
     }
@@ -39,12 +39,7 @@ router.post('/', (req, res, next) => {
         });
         res.json({
           success: true,
-          token: 'JWT ' + token,
-          user: {
-            id: user._id,
-            name: user.first_name,
-            username: user.username
-          }
+          token: 'bearer ' + token,
         });
       } else {
         return res.status(401).json({success: false, msg: 'Invalid username or password.'});

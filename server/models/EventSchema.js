@@ -8,10 +8,11 @@ var eventSchema = new Schema({
   },
   host: {
     type: String,
+    ref: "User.username",
     required: true,
   },
   address: {
-    type: Number,
+    type: String,
     required: true,
   },
   categories: {
