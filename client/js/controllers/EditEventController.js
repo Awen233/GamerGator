@@ -2,20 +2,18 @@ angular.module('EditEvent').controller('EditEventController', ['$scope', 'EditEv
     function ($scope, factory, shared) {
     	shared.setAuthHeader();
 
-
    $scope.createEvent = function() {
-   		Debug.log($scope)
-	   //  $scope.events.push($scope.newEvent); 
+	    $scope.event.push($scope.newEvent); 
 	    
-	   //  Events.create($scope.newEvent).then(function(err){
-	   //    $scope.newEvent={}; 
+	    Events.create($scope.newEvent).then(function(err){
+	      $scope.newEvent={}; 
 	      
-	   //    if(err){
-	   //      $scope.errorMessage="Event could not be added ";
-	   //      console.log('Not able to add event',err);
-	   //    }
+	      if(err){
+	        $scope.errorMessage="Event could not be added ";
+	        console.log('Not able to add event',err);
+	      }
   
-    // });
+    });
     }; 
 
 /*
