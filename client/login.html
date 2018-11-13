@@ -36,18 +36,18 @@
         <br><br><br>
 
         <div class = "col-md-4"></div>
-            <label class='pure-u-1' id='error' ng-if='model.errorMessage'>{{model.errorMessage}}</label>
-            <label class='pure-u-1' id='success' ng-if='model.successMessage'>{{model.successMessage}}</label>
             <div class="col-md-4">
-                <form ng-submit="logIn()">
-                    <div class="form-group">
-                        <input type="text" ng-model="user.username" class="form-control register-input" placeholder="Username">
-                        <br><br>
-                       <input type="password" ng-model="user.password" class="form-control register-input" placeholder="Password">
-                    </div>
-                    <br>
-                    <button type="submit" ng-disabled='!user.username || !user.password' class="btn btn-warning">Log in</button>
-                </form>
+              <label id='error' ng-if='model.errorMessage'>{{model.errorMessage}}</label>
+              <label id='success' ng-if='model.successMessage'>{{model.successMessage}}</label>
+              <form ng-submit="logIn()">
+                  <div class="form-group">
+                      <input type="text" ng-model="model.user.username" class="form-control register-input" placeholder="Username">
+                      <br><br>
+                     <input type="password" ng-model="model.user.password" class="form-control register-input" placeholder="Password">
+                  </div>
+                  <br>
+                  <button type="submit" ng-disabled='!model.user.username || !model.user.password || model.loading' class="btn btn-warning">Log in</button>
+              </form>
             </div>
         <div class = "col-md-4"></div>
 
