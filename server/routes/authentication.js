@@ -40,6 +40,7 @@ router.post('/login', (req, res, next) => {
         res.json({
           success: true,
           token: 'bearer ' + token,
+          user: user
         });
       } else {
         return res.status(401).json({success: false, msg: 'Invalid username or password.'});

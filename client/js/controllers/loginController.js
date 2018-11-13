@@ -10,7 +10,7 @@ angular.module('Login').controller('LoginController', ['$scope', 'LoginFactory',
             factory.api.logIn($scope.user).then(function(res) {
             	$scope.model.successMessage = 'Success. Redirecting you to the home page...';
             	$timeout(function() {
-            		shared.logIn(res.data.token, $scope.user.username);
+            		shared.logIn(res.data.token, res.data.user);
             	}, 2000);
             }, function(error) {
             	console.log(error);

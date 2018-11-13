@@ -7,14 +7,14 @@ angular.module('Shared', ['ngCookies']).factory('SharedService', ['$cookies', '$
 			isLoggedIn: function() {
 		    	return $cookies.get('token') != undefined;
 			},
-			logIn: function(token, username) {
+			logIn: function(token, user) {
 				$cookies.put('token', token);
-				$cookies.put('username', username);
+				$cookies.put('user', JSON.stringify(user));
 				$window.location.href = '/';
 			},
 			logOut: function() {
 				$cookies.remove('token');
-				$cookies.remove('username');
+				$cookies.remove('user');
 				$window.location.href = 'login.html';
 			},
 			showEvent: function(id) {
@@ -24,8 +24,8 @@ angular.module('Shared', ['ngCookies']).factory('SharedService', ['$cookies', '$
 			getSelectedEvent: function() {
 				return $cookies.get('selectedEvent');
 			},
-			getUsername: function() {
-				return $cookies.get('username');
+			getUser: function() {
+				return JSON.parse($cookies.get('user'));
 			}
 		};
 }]);

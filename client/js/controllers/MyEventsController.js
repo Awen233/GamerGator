@@ -2,11 +2,11 @@ angular.module('MyEvents').controller('MyEventsController', ['$scope', 'MyEvents
   function($scope, factory, shared) {
     shared.setAuthHeader();
     $scope.model = {
-      user_id: '',
+      name: '',
       events: []
     };
-
     // Do initial loading of information
+    $scope.model.name = shared.getUser().first_name;
     $scope.load = function() {
       factory.api.getMyEvents().then(function(res) {
         $scope.model.events = res.data;
@@ -18,6 +18,9 @@ angular.module('MyEvents').controller('MyEventsController', ['$scope', 'MyEvents
     // Route to single event page on click
     $scope.eventWasClicked = function(id) {
       shared.showEvent(id);
+    };
+    $scope.logOut = function() {
+      shared.logOut();
     };
   }
 ]);

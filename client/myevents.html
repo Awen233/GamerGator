@@ -14,7 +14,8 @@
           <img class='pure-img' src= "DND.jpg">
         </a>
         <ul id='navbar-menu-list' class='pure-menu-list'>
-          <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
+          <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+          <li class="pure-menu-item" ng-click='logOut()'><a href="#" class="pure-menu-link">Log out</a></li>
         </ul>
       </div>
     </div>
@@ -23,8 +24,7 @@
     <div class="banner">
       <h1 class="banner-head">
           <br>
-          Welcome, *NAME*<br>
-         
+          Welcome {{model.name}},<br>
           Here are your upcoming events
           </h1>
     </div>
