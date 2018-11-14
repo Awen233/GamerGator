@@ -70,6 +70,13 @@ body {
   margin-right: 5px;
 }
 
+#descript {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 #boxed-el {
   margin: 50px auto;
   width: 55%;

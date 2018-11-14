@@ -36,7 +36,6 @@
                  <br>
               </div>
             </center>
-
             <form>
 
             <h3> Date </h3><input type="date" ng-model= "model.event.date" placeholder=" 00/00/0000 ">
@@ -61,8 +60,11 @@
 
                 <h3> Description </h3>
                 <textarea ng-model= "model.event.description" rows="05" cols="50" placeholder="Enter a short description"></textarea> 
-           
-           <button ng-disabled='!model.event.date || !model.event.event_name || !model.event.host || !model.event.address' ng-click="createEvent()">SUBMIT</button>
+            <br>
+           <label id='error' ng-if='model.errorMessage'>{{model.errorMessage}}</label>
+            <label id='success' ng-if='model.successMessage'>{{model.successMessage}}</label>
+            <br>
+           <button ng-disabled='!model.event.date || !model.event.event_name || !model.event.host || !model.event.address || model.loading' ng-click="createEvent()">SUBMIT</button>
           </form>
 
 
