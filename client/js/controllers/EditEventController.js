@@ -1,44 +1,35 @@
-angular.module('EditEvent').controller('EditEventController', ['$scope', 'EditEventFactory', 'SharedService', 
-    function ($scope, factory, shared) {
+angular.module('EditEvent').controller('EditEventController', ['$scope', 'EditEventFactory', 'SharedService', '$window', 
+    function ($scope, factory, shared, $window) {
     	shared.setAuthHeader();
-
+      $scope.model = {
+        event: {
+          host: shared.getUser().username,
+          users: [
+            shared.getUser().username
+          ]
+        },
+        loggedIn: shared.isLoggedIn(),
+        categories: factory.categories
+      };
    $scope.createEvent = function() {
-	    $scope.event.push($scope.newEvent); 
-	    
-	    Events.create($scope.newEvent).then(function(err){
-	      $scope.newEvent={}; 
-	      
-	      if(err){
-	        $scope.errorMessage="Event could not be added ";
-	        console.log('Not able to add event',err);
-	      }
-  
-    });
-    }; 
+      var categories = []; // Iron the search categories dictionary out into a nice array
+        for (category in $scope.model.event.categories) {
+          if ($scope.model.event.categories[category]) {
+            categories.push(category);
+          }
+        }
+      var event = Object.assign({}, $scope.model.event);
+      event.categories = categories;
+      factory.api.create(event).then(function() {
+        console.log('Successfully created event: ', event);
+        $window.location.href = 'myevents.html';
+      }, function(err) {
+        console.log(err);
+      });
+  }; 
 
-/*
-    $scope.deleteEvent = function(index) {
-       var eventID =$scope.events[index]._id; 
-       $scope.events.splice(index, 1); 
-       
-       Listings.delete(eventID).then(function(err)
-       {
-         if (err){
-           $scope.errorMessage="Listing could not be deleted";
-           console.log ('Not able to delete the listing', err);         
-         }
-         
-       }); 
-  
-       
-    };
-*/
-
-
-    }
     	$scope.logOut = function() {
 	      shared.logOut();
 	    };
-}
-]);
+}]);
 

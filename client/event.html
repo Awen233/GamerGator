@@ -13,6 +13,7 @@
           <img class='pure-img' src= "DND.jpg">
         </a>
         <ul id='navbar-menu-list' class='pure-menu-list'>
+          <li class="pure-menu-item" ng-if='model.loggedIn'><a href="editevent.html" class="pure-menu-link">Create Event</a></li>
           <li class="pure-menu-item" ng-if='model.loggedIn'><a href="myevents.html" class="pure-menu-link">My Events</a></li>
           <li class="pure-menu-item" ng-if='model.loggedIn' ng-click='logOut()'><a href="#" class="pure-menu-link">Log out</a></li>
           <li class="pure-menu-item" ng-if='!model.loggedIn'><a href="login.html" class="pure-menu-link">Log in</a></li>

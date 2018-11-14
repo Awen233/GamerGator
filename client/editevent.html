@@ -21,7 +21,6 @@
           <li class="pure-menu-item" ng-if='model.loggedIn'><a href="myevents.html" class="pure-menu-link">My Events</a></li>
           <li class="pure-menu-item" ng-if='!model.loggedIn'><a href="login.html" class="pure-menu-link">Log in</a></li>
           <li class="pure-menu-item" ng-if='!model.loggedIn'><a href="register.html" class="pure-menu-link">Sign up</a></li>
-          <li class="pure-menu-item" ><a href="myevents.html" class="pure-menu-link">My Events</a></li>
           <li class="pure-menu-item" ng-click='logOut()'><a href="#" class="pure-menu-link">Log out</a></li>
         </ul>
       </div>
@@ -41,54 +40,17 @@
             <form>
 
             <h3> Date </h3><input type="date" ng-model= "model.event.date" placeholder=" 00/00/0000 ">
-            <h3> Host </h3><input type="string" ng-model= "model.event.host"placeholder=" John Doe ">
             <h3> Event Title </h3><input type="string" ng-model= "model.event.event_name" placeholder="Event Title ">
-            <h3> Age Limit </h3><input type="number" min="10" max="18" ng-model= "model.event.age" placeholder="15">
+            <h3> Minimum Age </h3><input type="number" min="10" max="18" ng-model= "model.event.age" placeholder="15">
             <h3> Address </h3><input type="string" ng-model= "model.event.address" value="Address,Gainesville,FL">
             
             <h3> Category </h3>
 
             <div class="form-group">  <!-- Checkbox Group !-->
-                <div class="checkbox">
-                <label><input type="checkbox" ng-model= "model.event.categories" value="Console">Console</label>
+                <div class="checkbox" ng-repeat='category in model.categories'>
+                <label><input type="checkbox" ng-model= "model.event.categories[category]">{{category}}</label>
                 </div>
-                <div class="checkbox">
-               <label><input type="checkbox" ng-model= "model.event.categories" value="PC">PC</label>
-                </div>
-                 <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="Mobile">Mobile</label>
-                </div>
-                 <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="Board Game">Board game</label>
-                </div>
-                 <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="Arcade">Arcade</label>
-                </div>
-                 <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="RolePlaying">Role playing</label>
-                </div>
-                 <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories"  value="Fighter">Fighter</label>
-                </div>
-                 <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="Racing">Racing</label>
-                </div>
-                 <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="Real-time strategy">Real-time strategy</label>
-                </div>
-              <div class="checkbox">
-               <label><input type="checkbox" ng-model= "model.event.categories" value="Turn-based strategy">Turn-based strategy</label>
-                </div>
-                <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="Shooter">Shooter</label>
-                </div>
-                 <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="Survival">Survival</label>
-                </div>
-                  <div class="checkbox">
-               <label><input type="checkbox"  ng-model= "model.event.categories" value="Sports">Sports</label>
-                </div>
-        </div>  
+            </div>  
          
 
               <style>
@@ -100,7 +62,7 @@
                 <h3> Description </h3>
                 <textarea ng-model= "model.event.description" rows="05" cols="50" placeholder="Enter a short description"></textarea> 
            
-           <button ng-disabled='!model.event.date || !model.event.event_name || !model.event.host|| !model.event.address' ng-click="createEvent()">SUBMIT</button>
+           <button ng-disabled='!model.event.date || !model.event.event_name || !model.event.host || !model.event.address' ng-click="createEvent()">SUBMIT</button>
           </form>
 
 
