@@ -1,0 +1,30 @@
+{
+    "entries":[
+        {
+            "event_name": "League of Legends",
+            "host": "group1",
+            "address" : "123 abc st, Gainesville FL, 32603",
+            "categories": [
+                "PC", "MOBA"
+            ],
+            "users": [
+                "group1", "group2", "group3"
+            ],
+            "date": "January 17, 2019 03:24:00",
+            "description": "Let's play some League!"
+        },
+        {
+            "event_name": "Overwatch Tournament",
+            "host": "group2",
+            "address" : "456 def st, Gainesville FL, 32603",
+            "categories": [
+                "PC", "MOBA"
+            ],
+            "users": [
+                "group2", "group1"
+            ],
+            "date": "February 17, 2019 03:24:00",
+            "description": "Overwatch yourself."
+        }
+    ]
+}

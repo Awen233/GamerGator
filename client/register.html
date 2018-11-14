@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/register.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+</head>
+<br/>
+<br/>
+<body ng-app="EventsApp" ng-controller='RegisterController' id="newinfo">
+
+<div class="container">
+    <div class="col-md-6">
+
+
+         <div id='navbar' class='pure-menu pure-menu-horizontal'>
+      <div id='navcontent'>
+        <a class='pure-menu-heading pure-menu-link' href='/'>
+          <img class='pure-img' src= "DND.jpg">
+        </a>
+        <ul id='navbar-menu-list' class='pure-menu-list'>
+          <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+          <li class="pure-menu-item"><a href="login.html" class="pure-menu-link">Log in</a></li>
+        </ul>
+      </div>
+    </div>
+
+        <br/>
+
+
+       <div id ="filter-box">
+            <div class="row">
+                <h4 align ="center">Create an Account</h4>
+            </div>
+        <label class='pure-u-1' id='error' ng-if='model.errorMessage'>{{model.errorMessage}}</label>
+        <label class='pure-u-1' id='success' ng-if='model.successMessage'>{{model.successMessage}}</label>
+        <form ng-submit="register()">
+
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" ng-model="model.user.first_name" id="addListingFirstName" class="form-control register-input"
+                       placeholder="First Name">
+            </div>
+
+            <div class="form-group">
+                <br/>
+                <label>Last Name:</label>
+                <input type="text" ng-model="model.user.last_name" id="addListingLastName" class="form-control register-input"
+                       placeholder="Last Name">
+            </div>
+
+            <div class="form-group">
+                <br/>
+                <label>Username:</label>
+                <input type="text" ng-model="model.user.username" id="addListingUsername" class="form-control register-input"
+                       placeholder="Username">
+            </div>
+
+            <div class="form-group">
+                <br/>
+                <label>Password:</label>
+                <input type="password" ng-model="model.user.password" id="addListingCode" class="form-control register-input"
+                       placeholder="Password">
+            </div>
+
+            <button type="submit" ng-disabled='!model.user.first_name || !model.user.last_name || !model.user.username || !model.user.password || model.loading' class="btn btn-warning">Submit</button>
+
+        </div>
+
+
+    </div>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.angularjs.org/1.6.3/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-cookies.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/RegisterFactory.js"></script>
+<script src="js/controllers/RegisterController.js"></script>
+</body>
+</html>
