@@ -1,3 +1,2 @@
-# CEN3031 Group Project
-
-Wednesday 1:55PM Group #2
+MEAN stack web application 
+for the deployment: go to https://gamer-gator.herokuapp.com/
